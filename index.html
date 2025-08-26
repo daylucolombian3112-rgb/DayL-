@@ -1,128 +1,84 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DayLú – Link en Bio</title>
-  <meta name="description" content="Haz parte de la familia Daylunática 🐄🥄" />
-  <style>
-    :root{
-      --fucsia:#ff2e8b;
-      --violeta:#6b38fb;
-      --negro:#111;
-      --blanco:#fff;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      color:var(--negro);
-      background:
-        radial-gradient(120px 80px at 10% 20%, #000 0 30%, transparent 31%) no-repeat,
-        radial-gradient(140px 100px at 80% 15%, #000 0 30%, transparent 31%) no-repeat,
-        radial-gradient(110px 90px at 30% 70%, #000 0 30%, transparent 31%) no-repeat,
-        radial-gradient(150px 110px at 85% 75%, #000 0 30%, transparent 31%) no-repeat,
-        linear-gradient(#fff,#fff);
-      background-size: auto, auto, auto, auto, 100% 100%;
-      min-height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-    }
-    .card{
-      width:100%;
-      max-width:560px;
-      background:rgba(255,255,255,.92);
-      backdrop-filter:saturate(1.2) blur(2px);
-      border:2px solid #000;
-      box-shadow: 8px 8px 0 #000;
-      border-radius:20px;
-      padding:28px 22px;
-      text-align:center;
-    }
-    .logo{
-      width:120px;height:120px;margin:0 auto 14px;
-      border-radius:50%;
-      border:3px solid #000;
-      background:#fff;
-      overflow:hidden;
-      display:grid;place-items:center;
-    }
-    .logo img{max-width:90%; max-height:90%; display:block}
-    .title{
-      font-weight:800; font-size:1.3rem; line-height:1.25; margin:6px 0 4px;
-    }
-    .subtitle{
-      font-size:.95rem; opacity:.9; margin:0 0 14px;
-    }
-    .flag{
-      display:inline-block; width:64px; height:12px; border:1px solid #000; margin:4px auto 14px;
-      background:
-        linear-gradient( to right, #FCD116 0 33.33%, #0038A8 33.33% 66.66%, #CE1126 66.66% 100% );
-    }
-    .cta{
-      font-weight:800; font-size:1.05rem; margin:10px 0 18px;
-    }
-    .links{display:flex; flex-direction:column; gap:12px}
-    .btn{
-      --bg: var(--fucsia);
-      display:block; width:100%;
-      border:2px solid #000; border-radius:16px;
-      padding:14px 16px;
-      text-decoration:none; color:#000; background:var(--bg);
-      box-shadow:4px 4px 0 #000;
-      font-weight:800; letter-spacing:.2px;
-      transition: transform .06s ease, box-shadow .06s ease, filter .2s ease;
-    }
-    .btn:hover{ transform: translate(-1px,-1px); box-shadow:6px 6px 0 #000; filter:saturate(1.1) }
-    .btn:active{ transform: translate(0,0); box-shadow:3px 3px 0 #000 }
-    .btn span{opacity:.9; font-weight:700}
-    .btn-violeta{ --bg: linear-gradient(135deg, var(--violeta), #9f6bff) }
-    .btn-fucsia{ --bg: linear-gradient(135deg, var(--fucsia), #ff73b2) }
-    .btn-blanco{ --bg: #fff }
-    .footer{
-      margin-top:18px; font-size:.82rem; opacity:.85;
-    }
-    .footer small{display:block}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DayLú – Link en Bio</title>
+<meta name="description" content="Haz parte de la familia Daylunática 🐄🥄" />
+<style>
+  :root{
+    --fucsia:#ff2e8b; --violeta:#6b38fb; --negro:#111; --blanco:#fff;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif; color:var(--negro);
+    background:
+      radial-gradient(140px 100px at 12% 12%, #000 0 30%, transparent 31%) no-repeat,
+      radial-gradient(160px 110px at 85% 18%, #000 0 30%, transparent 31%) no-repeat,
+      radial-gradient(120px 90px  at 26% 76%, #000 0 30%, transparent 31%) no-repeat,
+      radial-gradient(160px 110px at 86% 78%, #000 0 30%, transparent 31%) no-repeat,
+      linear-gradient(#fff,#fff);
+    background-size:auto,auto,auto,auto,100% 100%;
+    display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  .card{
+    width:100%; max-width:560px;
+    background:rgba(255,255,255,.92); border:2px solid #000; border-radius:26px;
+    box-shadow:10px 10px 0 #000; padding:22px 18px;
+  }
+  .logo{
+    width:120px; height:120px; margin:0 auto 10px; border-radius:50%;
+    border:3px solid #000; background:#fff; overflow:hidden; display:grid; place-items:center;
+  }
+  .logo img{max-width:92%; max-height:92%; display:block}
+  h1{margin:6px 0 2px; text-align:center; font-size:1.4rem}
+  .sub{margin:0 0 10px; text-align:center; opacity:.9}
+  .flag{width:72px;height:12px;border:1px solid #000;margin:6px auto 14px;
+    background:linear-gradient(to right,#FCD116 0 33.33%,#0038A8 33.33% 66.66%,#CE1126 66.66% 100%)}
+  .cta{font-weight:800;text-align:center;margin:10px 0 16px}
+  .links{display:flex; flex-direction:column; gap:14px}
+  .btn{
+    --bg:#fff;
+    display:block; width:100%; text-decoration:none; color:#000;
+    border:2px solid #000; border-radius:18px; padding:14px 16px; font-weight:800;
+    box-shadow:6px 6px 0 #000; background:var(--bg);
+    transition:transform .06s ease, box-shadow .06s ease, filter .2s ease;
+    text-align:center;
+  }
+  .btn:hover{transform:translate(-1px,-1px); box-shadow:8px 8px 0 #000; filter:saturate(1.06)}
+  .btn:active{transform:none; box-shadow:4px 4px 0 #000}
+  .btn-blanco{--bg:#fff}
+  .btn-violeta{--bg:linear-gradient(135deg,var(--violeta),#9f6bff); color:#fff}
+  .btn-fucsia {--bg:linear-gradient(135deg,var(--fucsia),#ff73b2); color:#fff}
+
+  .footer{margin-top:16px; text-align:center; font-size:.85rem; opacity:.85}
+</style>
 </head>
 <body>
-  <main class="card" role="main" aria-labelledby="titulo">
-    <div class="logo" aria-hidden="true">
-      <!-- Reemplaza logo-daylu.png por tu archivo si usas otro nombre -->
-      <img src="logo-daylu.png" alt="Logo DayLú" />
-    </div>
-    <h1 id="titulo" class="title">DayLú – Colombian Delights</h1>
-    <div class="flag" aria-label="Bandera de Colombia"></div>
-    <p class="cta"><strong>✨ Haz parte de la familia Daylunática 🐄🥄 ✨</strong></p>
+  <main class="card" role="main">
+    <div class="logo"><img src="logo-daylu.png" alt="Logo DayLú" /></div>
+    <h1>DayLú – Colombian Delights</h1>
+    <p class="sub">Únete a los <strong>#Daylúnaticos</strong></p>
+    <div class="flag" aria-hidden="true"></div>
+    <p class="cta">✨ Haz parte de la familia Daylunática 🐄🥄 ✨</p>
 
     <nav class="links" aria-label="Enlaces principales">
-      <!-- 📖 Menú -->
-      <a class="btn btn-blanco" href="https://daylucolombian3112-rgb.github.io/DayL-/" target="_blank" rel="noopener">
-        📖 Ver Menú <span>— sabores & toppings</span>
-      </a>
-
-      <!-- 🥄 WhatsApp pedidos -->
-      <a class="btn btn-fucsia" href="https://wa.me/19087263381?text=Hola%20DayL%C3%BA%20%F0%9F%A5%84%20Quiero%20hacer%20mi%20pedido" target="_blank" rel="noopener">
-        🥄 Haz tu pedido aquí Daylunático
-      </a>
+      <!-- 📖 Menús directo -->
+      <a class="btn btn-violeta" href="menu-es.html">📖 Menú en Español</a>
+      <a class="btn btn-fucsia" href="menu-en.html">📖 Menu in English</a>
 
       <!-- 📸 Instagram -->
-      <a class="btn btn-violeta" href="https://www.instagram.com/daylu.colombian?igsh=cjhxY3htdDJwZ212&utm_source=qr" target="_blank" rel="noopener">
-        📸 Instagram DayLú
-      </a>
+      <a class="btn btn-blanco" href="https://www.instagram.com/daylu.colombian?igsh=cjhxY3htdDJwZ212&utm_source=qr" target="_blank" rel="noopener">📸 Instagram DayLú</a>
 
       <!-- 🎥 TikTok -->
-      <a class="btn btn-violeta" href="https://www.tiktok.com/@daylucolombian?_t=ZT-8zBmzJL03WI&_r=1" target="_blank" rel="noopener">
-        🎥 TikTok DayLú
-      </a>
+      <a class="btn btn-blanco" href="https://www.tiktok.com/@daylucolombian?_t=ZT-8zBmzJL03WI&_r=1" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
+
+      <!-- 🥄 WhatsApp -->
+      <a class="btn btn-fucsia" href="https://wa.me/19087263381?text=Hola%20DayL%C3%BA%20%F0%9F%A5%84%20Quiero%20hacer%20mi%20pedido" target="_blank" rel="noopener">🥄 Haz tu pedido aquí Daylunático</a>
     </nav>
 
-    <div class="footer" aria-label="Información">
-      <small>Hecho con amor y mucho 🐄 por DayLú.</small>
-    </div>
+    <div class="footer"><small>Hecho con amor y mucho 🐄 por DayLú.</small></div>
   </main>
 </body>
 </html>
