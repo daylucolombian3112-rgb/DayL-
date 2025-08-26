@@ -52,7 +52,10 @@
   .btn-violeta{--bg:linear-gradient(135deg,var(--violeta),#9f6bff); color:#fff}
   .btn-fucsia {--bg:linear-gradient(135deg,var(--fucsia),#ff73b2); color:#fff}
 
-  .footer{margin-top:16px; text-align:center; font-size:.85rem; opacity:.85}
+  /* Submenús por idioma */
+  details{width:100%}
+  details > summary{list-style:none; cursor:pointer}
+  .submenu{display:flex; flex-direction:column; gap:10px; margin-top:10px; padding:8px 6px 0}
 </style>
 </head>
 <body>
@@ -64,21 +67,37 @@
     <p class="cta">✨ Haz parte de la familia Daylunática 🐄🥄 ✨</p>
 
     <nav class="links" aria-label="Enlaces principales">
-      <!-- 📖 Menús directo -->
-      <a class="btn btn-violeta" href="menu-es.html">📖 Menú en Español</a>
-      <a class="btn btn-fucsia" href="menu-en.html">📖 Menu in English</a>
+      <!-- 📖 Menú ESPAÑOL -->
+      <details>
+        <summary class="btn btn-violeta">📖 Menú en Español</summary>
+        <div class="submenu">
+          <a class="btn btn-blanco" href="menu-es-1.png?v=1" target="_blank" rel="noopener">🇪🇸 Ver Menú (Parte 1)</a>
+          <a class="btn btn-blanco" href="Untitled%20design.png?v=1" target="_blank" rel="noopener">🇪🇸 Ver Menú (Parte 2)</a>
+        </div>
+      </details>
+
+      <!-- 📖 Menu ENGLISH -->
+      <details>
+        <summary class="btn btn-fucsia">📖 Menu in English</summary>
+        <div class="submenu">
+          <a class="btn btn-blanco" href="7.png?v=1" target="_blank" rel="noopener">🇺🇸 View Menu (Part 1)</a>
+          <a class="btn btn-blanco" href="Coconut.png?v=1" target="_blank" rel="noopener">🇺🇸 View Menu (Part 2)</a>
+        </div>
+      </details>
+
+      <!-- 🥄 WhatsApp -->
+      <a class="btn btn-fucsia" href="https://wa.me/19087263381?text=Hola%20DayL%C3%BA%20%F0%9F%A5%84%20Quiero%20hacer%20mi%20pedido" target="_blank" rel="noopener">🥄 Haz tu pedido aquí Daylunático</a>
 
       <!-- 📸 Instagram -->
       <a class="btn btn-blanco" href="https://www.instagram.com/daylu.colombian?igsh=cjhxY3htdDJwZ212&utm_source=qr" target="_blank" rel="noopener">📸 Instagram DayLú</a>
 
       <!-- 🎥 TikTok -->
-      <a class="btn btn-blanco" href="https://www.tiktok.com/@daylucolombian?_t=ZT-8zBmzJL03WI&_r=1" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
-
-      <!-- 🥄 WhatsApp -->
-      <a class="btn btn-fucsia" href="https://wa.me/19087263381?text=Hola%20DayL%C3%BA%20%F0%9F%A5%84%20Quiero%20hacer%20mi%20pedido" target="_blank" rel="noopener">🥄 Haz tu pedido aquí Daylunático</a>
+      <a class="btn btn-blanco" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
     </nav>
 
-    <div class="footer"><small>Hecho con amor y mucho 🐄 por DayLú.</small></div>
+    <div class="footer" style="margin-top:16px; text-align:center; font-size:.85rem; opacity:.85">
+      <small>Hecho con amor y mucho 🐄 por DayLú.</small>
+    </div>
   </main>
 </body>
 </html>
