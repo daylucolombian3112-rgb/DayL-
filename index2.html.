@@ -1,77 +1,62 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DayLú – Link en Bio</title>
+  <meta name="description" content="Haz parte de la familia Daylunática 🐄🥄✨" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui;
-      background: url("IMG_1933.jpeg") repeat center center;
-      background-size: 220px;
-      color: #111;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
+      background:#fff url("IMG_1933.jpeg") repeat center center;
+      background-size:220px;
+      min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; color:#111;
     }
-    .card {
-      width: 100%; max-width: 560px;
-      background: #fff;
-      border: 3px solid #000;
-      border-radius: 20px;
-      box-shadow: 10px 10px 0 #000;
-      padding: 22px 18px;
-      text-align: center;
+    .card{
+      width:100%; max-width:560px; background:#fff;
+      border:3px solid #000; border-radius:20px; box-shadow:10px 10px 0 #000;
+      padding:22px 18px; text-align:center;
     }
-    .logo img {
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      border: 3px solid #000;
-      margin-bottom: 14px;
-    }
-    h1 { font-size: 1.4rem; margin-bottom: 8px; }
-    p { margin-bottom: 18px; font-weight: 500; }
-    .links { display: flex; flex-direction: column; gap: 12px; }
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      border: 2px solid #000;
-      border-radius: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      color: #000;
-      background: #fff;
-      box-shadow: 6px 6px 0 #000;
-      transition: all .2s ease;
-      text-align: center;
-    }
-    .btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 10px 10px 0 #000;
-    }
-    .violet { background: linear-gradient(135deg, #6b38fb,#9f6bff); color: #fff; }
-    .fucsia { background: linear-gradient(135deg, #ff2e8b,#ff73b2); color: #fff; }
+    .logo{width:120px;height:120px;margin:0 auto 14px;border-radius:50%;border:3px solid #000;overflow:hidden;display:grid;place-items:center;background:#fff}
+    .logo img{max-width:90%;max-height:90%}
+    h1{font-size:1.4rem;margin-bottom:8px}
+    p{margin-bottom:18px;font-weight:500}
+    .btn{display:block;width:100%;padding:14px;margin:8px 0;border:2px solid #000;border-radius:16px;font-weight:700;text-decoration:none;text-align:center;color:#fff;transition:.2s;box-shadow:6px 6px 0 #000}
+    .btn:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 #000}
+    .violet{background:linear-gradient(135deg,#6b38fb,#9f6bff)}
+    .fucsia{background:linear-gradient(135deg,#ff2e8b,#ff73b2)}
+    details{background:#fff;border:2px solid #000;border-radius:12px;margin:10px 0;padding:10px}
+    details summary{font-weight:800;cursor:pointer;outline:0}
+    details img{width:100%;margin-top:10px;border-radius:12px;border:2px solid #000;display:block}
   </style>
 </head>
 <body>
   <main class="card">
-    <div class="logo">
-      <img src="logo-daylu.png" alt="Logo DayLú" />
-    </div>
+    <div class="logo"><img src="logo-daylu.png" alt="Logo DayLú"></div>
     <h1>DayLú – Colombian Delights</h1>
     <p>✨ Haz parte de la familia Daylunática 🐄🥄✨</p>
 
-    <nav class="links">
-      <a class="btn violet" href="menu-es.html">🇪🇸 Ver Menú en Español</a>
-      <a class="btn fucsia" href="menu-en.html">🇺🇸 View Menu in English</a>
-      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank">🥄 Haz tu pedido aquí Daylunático</a>
-      <a class="btn" href="https://www.instagram.com/daylu.colombian" target="_blank">📸 Instagram DayLú</a>
-      <a class="btn" href="https://www.tiktok.com/@daylucolombian" target="_blank">🎥 TikTok DayLú</a>
-    </nav>
+    <!-- Menú Español (muestra 2 imágenes) -->
+    <details>
+      <summary>📖 Ver Menú en Español</summary>
+      <img src="menu-es-1.png?v=1" alt="Menú Español 1">
+      <img src="Untitled%20design.png?v=1" alt="Menú Español 2">
+    </details>
+
+    <!-- Menú Inglés (muestra 2 imágenes) -->
+    <details>
+      <summary>📖 View Menu in English</summary>
+      <img src="7.png?v=1" alt="Menu English 1">
+      <img src="Coconut.png?v=1" alt="Menu English 2">
+    </details>
+
+    <!-- Pedido y redes -->
+    <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedido aquí Daylunático</a>
+    <a class="btn violet" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">📸 Instagram DayLú</a>
+    <a class="btn violet" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
   </main>
+</body>
+</html>
 </body>
 </html>
