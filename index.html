@@ -6,8 +6,8 @@
   <title>DayLú – Link en Bio</title>
   <meta name="description" content="Haz parte de la familia Daylunática 🐄🥄✨" />
 
-  <!-- Fuente Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Fuente Anton (muy clara y gruesa) -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
@@ -33,11 +33,9 @@
     .cow-frame .right{top:0; right:0; width:24px; height:100vh;}
 
     body{
-      font-family:'Montserrat', sans-serif;
+      font-family:'Anton', sans-serif;
       min-height:100vh; display:flex; align-items:center; justify-content:center;
       padding:24px; color:#fff;
-      text-shadow:none;
-      -webkit-text-stroke:0;
     }
 
     .card{
@@ -51,16 +49,17 @@
     .logo img{max-width:90%;max-height:90%}
 
     h1{
-      font-size:1.6rem;margin-bottom:8px;
-      font-weight:700;
-      text-shadow:2px 2px 4px rgba(0,0,0,0.9);
-      -webkit-text-stroke:1px #000;
+      font-size:1.7rem;margin-bottom:8px;
+      font-weight:400;
+      color:#fff;
+      text-shadow:3px 3px 6px rgba(0,0,0,1);
+      -webkit-text-stroke:1.5px #000;
     }
 
     .intro-text{
       margin:18px auto;
-      font-weight:700;
-      font-size:1.3rem;
+      font-size:1.4rem;
+      font-weight:400;
       color:#fff;
       text-shadow:3px 3px 6px rgba(0,0,0,1);
       -webkit-text-stroke:1.5px #000;
@@ -85,26 +84,26 @@
     /* Bloque de ubicación */
     #ubicacion{margin-top:20px; text-align:center}
     #ubicacion h2{
-      font-size:1.25rem; margin-bottom:8px;
-      font-weight:700;
+      font-size:1.3rem; margin-bottom:8px;
+      font-weight:400;
       color:#fff;
-      text-shadow:2px 2px 6px rgba(0,0,0,1);
-      -webkit-text-stroke:1px #000;
+      text-shadow:3px 3px 6px rgba(0,0,0,1);
+      -webkit-text-stroke:1.5px #000;
     }
     #ubicacion p{
       margin:6px 0;
-      font-weight:700;
-      font-size:1.1rem;
+      font-size:1.2rem;
+      font-weight:400;
       color:#fff;
-      text-shadow:2px 2px 6px rgba(0,0,0,1);
-      -webkit-text-stroke:1px #000;
+      text-shadow:3px 3px 6px rgba(0,0,0,1);
+      -webkit-text-stroke:1.5px #000;
     }
   </style>
 </head>
 <body>
   <!-- ===== VIDEO DE FONDO ===== -->
   <video id="bg-video" autoplay muted loop playsinline preload="auto">
-    <source src="video-fondo.mp4?v=7" type="video/mp4">
+    <source src="video-fondo.mp4?v=8" type="video/mp4">
     <source src="video-fondo.mp4..MOV" type="video/quicktime">
   </video>
 
@@ -165,4 +164,18 @@
     <section id="ubicacion" aria-labelledby="titulo-ubicacion">
       <h2 id="titulo-ubicacion">📍 ¿Dónde y cuándo encontrarnos?</h2>
       <p><strong>Días:</strong> Viernes, Sábado y Domingo</p>
-      <p><strong>Hora:</strong>
+      <p><strong>Hora:</strong> Desde las 5:00 PM</p>
+      <a class="btn fucsia" href="https://maps.app.goo.gl/rLBVhd2YtjiEwdJT7?g_st=ipc" target="_blank" rel="noopener">
+        🗺️ Ver ubicación en Google Maps
+      </a>
+    </section>
+
+    <!-- Pedido y redes -->
+    <nav class="links" aria-label="Accesos">
+      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedido Daylunático aqui </a>
+      <a class="btn violet" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">📸 Instagram DayLú</a>
+      <a class="btn violet" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
+    </nav>
+  </main>
+</body>
+</html>
