@@ -64,7 +64,8 @@
       font-family:'Playfair Display', serif;
       font-size:2rem; font-weight:700;
       color:#fff; /* blanco puro */
-      text-shadow:0 0 6px rgba(0,0,0,0.9), 2px 2px 4px rgba(0,0,0,0.8);
+      -webkit-text-stroke:0.5px #000; /* borde negro fino */
+      text-shadow:1px 1px 4px rgba(0,0,0,0.8);
       margin-bottom:10px;
     }
 
@@ -74,21 +75,30 @@
       font-size:1.2rem; /* más pequeña */
       font-weight:400;
       color:#fff; /* blanco puro */
-      text-shadow:2px 2px 5px rgba(0,0,0,1);
+      -webkit-text-stroke:0.5px #000; /* borde negro fino */
+      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
       margin:16px auto;
     }
 
     /* === UBICACIÓN (Anton) === */
-    #ubicacion h2,
+    #ubicacion h2{
+      font-family:'Anton', sans-serif;
+      font-size:1.2rem;
+      color:#fff;
+      -webkit-text-stroke:0.5px #000;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+      margin-bottom:8px;
+    }
     #ubicacion p{
       font-family:'Anton', sans-serif;
-      color:#fff; /* blanco puro */
-      text-shadow:2px 2px 5px rgba(0,0,0,1);
+      font-size:1.1rem;
+      color:#fff;
+      -webkit-text-stroke:0.5px #000;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+      margin:6px 0;
     }
-    #ubicacion h2{ font-size:1.3rem; margin-bottom:8px; }
-    #ubicacion p{ font-size:1.2rem; margin:6px 0; }
 
-    .btn{display:block;width:100%;padding:14px;margin:8px 0;border-radius:16px;font-weight:700;text-decoration:none;text-align:center;color:#fff;transition:.2s;box-shadow:4px 4px 0 rgba(0,0,0,0.7);background:#ff2e8b; -webkit-text-stroke:0}
+    .btn{display:block;width:100%;padding:14px;margin:8px 0;border-radius:16px;font-weight:700;text-decoration:none;text-align:center;color:#fff;transition:.2s;box-shadow:4px 4px 0 rgba(0,0,0,0.7);background:#ff2e8b}
     .btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(0,0,0,0.7)}
     .violet{background:linear-gradient(135deg,#6b38fb,#9f6bff)}
     .fucsia{background:linear-gradient(135deg,#ff2e8b,#ff73b2)}
@@ -108,7 +118,7 @@
 <body>
   <!-- ===== VIDEO DE FONDO ===== -->
   <video id="bg-video" autoplay muted loop playsinline preload="auto">
-    <source src="video-fondo.mp4?v=15" type="video/mp4">
+    <source src="video-fondo.mp4?v=17" type="video/mp4">
     <source src="video-fondo.mp4..MOV" type="video/quicktime">
   </video>
 
@@ -179,7 +189,7 @@
 
     <!-- Pedido y redes -->
     <nav class="links" aria-label="Accesos">
-      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedido aquí Daylunático</a>
+      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedido Daylunático aquí </a>
       <a class="btn violet" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">📸 Instagram DayLú</a>
       <a class="btn violet" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
     </nav>
