@@ -32,6 +32,8 @@
       font-family:system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
       min-height:100vh; display:flex; align-items:center; justify-content:center;
       padding:24px; color:#fff;
+      text-shadow:none;
+      -webkit-text-stroke:0;
     }
 
     .card{
@@ -43,11 +45,15 @@
     }
     .logo{width:120px;height:120px;margin:0 auto 14px;border-radius:50%;border:3px solid #fff;overflow:hidden;display:grid;place-items:center;background:#0008}
     .logo img{max-width:90%;max-height:90%}
-    h1{font-size:1.6rem;margin-bottom:8px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); -webkit-text-stroke:1px #000;}
+    h1{
+      font-size:1.6rem;margin-bottom:8px;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+      -webkit-text-stroke:1px #000;
+    }
     .intro-text{
       margin-bottom:18px; font-weight:600;
-      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
-      -webkit-text-stroke:1px #000; /* contorno negro */
+      text-shadow:2px 2px 6px rgba(0,0,0,1);
+      -webkit-text-stroke:1px #000;
       font-size:1.1rem;
     }
 
@@ -71,12 +77,12 @@
     #ubicacion{margin-top:20px; text-align:center}
     #ubicacion h2{
       font-size:1.25rem; margin-bottom:8px;
-      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+      text-shadow:2px 2px 6px rgba(0,0,0,1);
       -webkit-text-stroke:1px #000;
     }
     #ubicacion p{
       margin:4px 0; font-weight:600;
-      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+      text-shadow:2px 2px 6px rgba(0,0,0,1);
       -webkit-text-stroke:1px #000;
     }
   </style>
@@ -84,7 +90,7 @@
 <body>
   <!-- ===== VIDEO DE FONDO ===== -->
   <video id="bg-video" autoplay muted loop playsinline preload="auto">
-    <source src="video-fondo.mp4?v=5" type="video/mp4">
+    <source src="video-fondo.mp4?v=6" type="video/mp4">
     <source src="video-fondo.mp4..MOV" type="video/quicktime">
   </video>
 
@@ -153,13 +159,6 @@
 
     <!-- Pedido y redes -->
     <nav class="links" aria-label="Accesos">
-      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedido aquí Daylunático</a>
-      <a class="btn violet" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">📸 Instagram DayLú</a>
-      <a class="btn violet" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
-    </nav>
-  </main>
-</body>
-</html>
       <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedido aquí Daylunático</a>
       <a class="btn violet" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">📸 Instagram DayLú</a>
       <a class="btn violet" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
