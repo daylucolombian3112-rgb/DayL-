@@ -6,7 +6,12 @@
   <title>DayLú – Link en Bio</title>
   <meta name="description" content="Haz parte de la familia Daylunática 🐮🥄" />
 
-  <!-- Fuente Anton (frase/ubicación) + Playfair (título) -->
+  <!-- Fuerza a no usar caché del HTML -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -24,9 +29,7 @@
 
     /* ===== MARCO DE MANCHAS ===== */
     .cow-frame{pointer-events:none; z-index:2;}
-    .cow-frame div{
-      position:fixed; background:url("IMG_1933.jpeg") center/220px repeat;
-    }
+    .cow-frame div{ position:fixed; background:url("IMG_1933.jpeg?v=18") center/220px repeat; }
     .cow-frame .top{top:0; left:0; width:100vw; height:24px;}
     .cow-frame .bottom{bottom:0; left:0; width:100vw; height:24px;}
     .cow-frame .left{top:0; left:0; width:24px; height:100vh;}
@@ -59,41 +62,39 @@
     }
     .logo img{max-width:90%; max-height:90%}
 
-    /* === TÍTULO DESTACADO === */
+    /* === TÍTULO DESTACADO (blanco + borde fino negro) === */
     h1{
       font-family:'Playfair Display', serif;
       font-size:2rem; font-weight:700;
-      color:#fff; /* blanco puro */
-      -webkit-text-stroke:0.5px #000; /* borde negro fino */
+      color:#fff;
+      -webkit-text-stroke:0.5px #000; /* borde negro delgado */
       text-shadow:1px 1px 4px rgba(0,0,0,0.8);
       margin-bottom:10px;
     }
 
-    /* === FRASE DESTACADA (Anton) === */
+    /* === FRASE (Anton) — blanco + borde fino negro === */
     .intro-text{
       font-family:'Anton', sans-serif;
-      font-size:1.2rem; /* más pequeña */
+      font-size:1.2rem; /* más pequeña como pediste */
       font-weight:400;
-      color:#fff; /* blanco puro */
-      -webkit-text-stroke:0.5px #000; /* borde negro fino */
+      color:#fff;
+      -webkit-text-stroke:0.5px #000;
       text-shadow:1px 1px 3px rgba(0,0,0,0.8);
       margin:16px auto;
     }
 
-    /* === UBICACIÓN (Anton) === */
+    /* === UBICACIÓN (Anton) — blancos + borde fino === */
     #ubicacion h2{
       font-family:'Anton', sans-serif;
       font-size:1.2rem;
-      color:#fff;
-      -webkit-text-stroke:0.5px #000;
+      color:#fff; -webkit-text-stroke:0.5px #000;
       text-shadow:1px 1px 3px rgba(0,0,0,0.8);
       margin-bottom:8px;
     }
     #ubicacion p{
       font-family:'Anton', sans-serif;
       font-size:1.1rem;
-      color:#fff;
-      -webkit-text-stroke:0.5px #000;
+      color:#fff; -webkit-text-stroke:0.5px #000;
       text-shadow:1px 1px 3px rgba(0,0,0,0.8);
       margin:6px 0;
     }
@@ -117,12 +118,11 @@
 </head>
 <body>
   <!-- ===== VIDEO DE FONDO ===== -->
-  <video id="bg-video" autoplay muted loop playsinline preload="auto">
-    <source src="video-fondo.mp4?v=17" type="video/mp4">
-    <source src="video-fondo.mp4..MOV" type="video/quicktime">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="">
+    <source src="video-fondo.mp4?v=18" type="video/mp4">
+    <source src="video-fondo.mp4..MOV?v=18" type="video/quicktime">
   </video>
 
-  <!-- Autoplay iOS fallback -->
   <script>
     (function(){
       const v = document.getElementById('bg-video');
@@ -144,7 +144,7 @@
   </div>
 
   <!-- Logo arriba -->
-  <div class="logo"><img src="logo-daylu.png" alt="Logo DayLú"></div>
+  <div class="logo"><img src="logo-daylu.png?v=18" alt="Logo DayLú"></div>
 
   <main class="card">
     <a id="top"></a>
@@ -155,8 +155,8 @@
     <details>
       <summary>📖 Ver Menú en Español</summary>
       <div class="imgs">
-        <img src="menu-es-1.png?v=4" alt="Menú Español 1">
-        <img src="Untitled%20design.png?v=4" alt="Menú Español 2">
+        <img src="menu-es-1.png?v=18" alt="Menú Español 1">
+        <img src="Untitled%20design.png?v=18" alt="Menú Español 2">
       </div>
       <div class="actions">
         <a class="mini" href="#top" onclick="this.closest('details').removeAttribute('open');window.scrollTo({top:0,behavior:'smooth'});return false;">⬅ Regresar</a>
@@ -168,8 +168,8 @@
     <details>
       <summary>📖 View Menu in English</summary>
       <div class="imgs">
-        <img src="7.png?v=4" alt="Menu English 1">
-        <img src="Coconut.png?v=4" alt="Menu English 2">
+        <img src="7.png?v=18" alt="Menu English 1">
+        <img src="Coconut.png?v=18" alt="Menu English 2">
       </div>
       <div class="actions">
         <a class="mini" href="#top" onclick="this.closest('details').removeAttribute('open');window.scrollTo({top:0,behavior:'smooth'});return false;">⬅ Regresar</a>
@@ -189,7 +189,7 @@
 
     <!-- Pedido y redes -->
     <nav class="links" aria-label="Accesos">
-      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedido Daylunático aquí</a>
+      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedid Daylunático aquí</a>
       <a class="btn violet" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">📸 Instagram DayLú</a>
       <a class="btn violet" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
     </nav>
