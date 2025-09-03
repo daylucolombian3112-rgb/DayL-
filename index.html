@@ -7,7 +7,7 @@
   <meta name="description" content="Haz parte de la familia Daylunática 🐄🥄✨" />
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    html, body{ background:transparent; }
+    html, body { background:transparent; }
 
     /* ===== VIDEO DE FONDO ===== */
     #bg-video{
@@ -15,6 +15,7 @@
       width:100vw; height:100vh;
       object-fit:cover; object-position:center;
       z-index:0; display:block;
+      background:#000; /* fallback si el video no carga (evita blanco) */
     }
 
     /* ===== MARCO DE MANCHAS ===== */
@@ -53,7 +54,7 @@
     .violet{background:linear-gradient(135deg,#6b38fb,#9f6bff)}
     .fucsia{background:linear-gradient(135deg,#ff2e8b,#ff73b2)}
 
-    details{background:#fff;border:2px solid #000;border-radius:12px;margin:10px 0;padding:10px;text-align:left}
+    details{background:rgba(255,255,255,0.9);border:2px solid #000;border-radius:12px;margin:10px 0;padding:10px;text-align:left}
     details summary{font-weight:800;cursor:pointer;outline:0}
     details .imgs{margin-top:10px}
     details img{width:100%;margin-top:10px;border-radius:12px;border:2px solid #000;display:block}
@@ -72,9 +73,26 @@
 </head>
 <body>
   <!-- ===== VIDEO DE FONDO ===== -->
-  <video id="bg-video" autoplay muted loop playsinline preload="auto">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="">
+    <!-- Ideal: MP4 correcto -->
+    <source src="video-fondo.mp4?v=2" type="video/mp4">
+    <!-- Por si aún no pudiste renombrar: usa exactamente el nombre que tienes -->
     <source src="video-fondo.mp4..MOV" type="video/quicktime">
   </video>
+
+  <!-- Fuerza play en iOS al primer toque si el autoplay no arranca -->
+  <script>
+    (function(){
+      const v = document.getElementById('bg-video');
+      if (!v) return;
+      const tryPlay = () => v.play().catch(()=>{});
+      document.addEventListener('DOMContentLoaded', tryPlay);
+      setTimeout(tryPlay, 700);
+      window.addEventListener('touchstart', function once(){
+        tryPlay(); window.removeEventListener('touchstart', once);
+      }, {once:true});
+    })();
+  </script>
 
   <!-- ===== MARCO DE MANCHAS ===== -->
   <div class="cow-frame" aria-hidden="true">
