@@ -1,198 +1,278 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DayLú – Link en Bio</title>
-  <meta name="description" content="Haz parte de la familia Daylunática 🐮🥄" />
+  <title>DayLú – Enlaces</title>
 
-  <!-- Fuerza a no usar caché del HTML -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <meta name="description"
+        content="Haz parte de la familia Daylunática 🐄✨ Arroz con leche colombiano, toppings deliciosos y muchas sorpresas." />
+  <meta name="theme-color" content="#000000" />
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html, body { background:transparent; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      color: #111;
+    }
 
     /* ===== VIDEO DE FONDO ===== */
-    #bg-video{
-      position:fixed; inset:0;
-      width:100vw; height:100vh;
-      object-fit:cover; object-position:center;
-      z-index:0; display:block;
-      background:#000;
+    #bg-video {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
     }
 
-    /* ===== MARCO DE MANCHAS ===== */
-    .cow-frame{pointer-events:none; z-index:2;}
-    .cow-frame div{ position:fixed; background:url("IMG_1933.jpeg?v=18") center/220px repeat; }
-    .cow-frame .top{top:0; left:0; width:100vw; height:24px;}
-    .cow-frame .bottom{bottom:0; left:0; width:100vw; height:24px;}
-    .cow-frame .left{top:0; left:0; width:24px; height:100vh;}
-    .cow-frame .right{top:0; right:0; width:24px; height:100vh;}
-
-    body{
-      font-family:system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
-      min-height:100vh; display:flex; flex-direction:column;
-      align-items:center; justify-content:flex-start;
-      padding:24px; color:#fff;
+    /* capa oscura encima del video */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: -1;
     }
 
-    .card{
-      position:relative; z-index:3;
-      width:100%; max-width:560px;
-      background:transparent;
-      border:0; box-shadow:none;
-      padding:22px 18px; text-align:center;
+    .wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
     }
 
-    /* ===== LOGO ARRIBA ===== */
-    .logo{
-      position:relative; z-index:4;
-      width:120px; height:120px;
-      margin:6px auto 12px;
-      border-radius:50%;
-      border:3px solid #fff;
-      overflow:hidden; display:grid; place-items:center;
-      background:#0008;
-    }
-    .logo img{max-width:90%; max-height:90%}
-
-    /* === TÍTULO DESTACADO (blanco + borde fino negro) === */
-    h1{
-      font-family:'Playfair Display', serif;
-      font-size:2rem; font-weight:700;
-      color:#fff;
-      -webkit-text-stroke:0.5px #000; /* borde negro delgado */
-      text-shadow:1px 1px 4px rgba(0,0,0,0.8);
-      margin-bottom:10px;
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255, 255, 255, 0.90);
+      border-radius: 24px;
+      padding: 20px 20px 24px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+      border: 3px solid #000;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* === FRASE (Anton) — blanco + borde fino negro === */
-    .intro-text{
-      font-family:'Anton', sans-serif;
-      font-size:1.2rem; /* más pequeña como pediste */
-      font-weight:400;
-      color:#fff;
-      -webkit-text-stroke:0.5px #000;
-      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
-      margin:16px auto;
+    .spots-strip {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 26px;
+      background:
+        radial-gradient(circle at 10% 40%, #000 0 10px, transparent 10px),
+        radial-gradient(circle at 40% 60%, #000 0 13px, transparent 13px),
+        radial-gradient(circle at 75% 30%, #000 0 11px, transparent 11px),
+        #ffffff;
+      border-bottom: 2px solid #000;
     }
 
-    /* === UBICACIÓN (Anton) — blancos + borde fino === */
-    #ubicacion h2{
-      font-family:'Anton', sans-serif;
-      font-size:1.2rem;
-      color:#fff; -webkit-text-stroke:0.5px #000;
-      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
-      margin-bottom:8px;
-    }
-    #ubicacion p{
-      font-family:'Anton', sans-serif;
-      font-size:1.1rem;
-      color:#fff; -webkit-text-stroke:0.5px #000;
-      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
-      margin:6px 0;
+    .content {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
     }
 
-    .btn{display:block;width:100%;padding:14px;margin:8px 0;border-radius:16px;font-weight:700;text-decoration:none;text-align:center;color:#fff;transition:.2s;box-shadow:4px 4px 0 rgba(0,0,0,0.7);background:#ff2e8b}
-    .btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(0,0,0,0.7)}
-    .violet{background:linear-gradient(135deg,#6b38fb,#9f6bff)}
-    .fucsia{background:linear-gradient(135deg,#ff2e8b,#ff73b2)}
+    /* LOGO + TÍTULO */
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
 
-    details{background:rgba(0,0,0,0.6);color:#fff;border-radius:12px;margin:10px 0;padding:10px;text-align:left}
-    details summary{font-weight:800;cursor:pointer;outline:0}
-    details .imgs{margin-top:10px}
-    details img{width:100%;margin-top:10px;border-radius:12px;border:2px solid #fff;display:block}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .mini{display:inline-block;padding:10px 12px;border-radius:12px;background:#000a;color:#fff;
-      text-decoration:none;font-weight:800;box-shadow:2px 2px 0 rgba(0,0,0,0.7)}
-    .mini:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.7)}
+    .brand-logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid #000;
+      object-fit: cover;
+      background: #000;
+    }
 
-    .links{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+    .brand h1 {
+      font-size: 2.1rem;
+      letter-spacing: 0.04em;
+    }
+
+    .brand span {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .tagline {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    /* MASCOTA ANIMADA */
+    .mascot-wrapper {
+      margin-top: 4px;
+      max-width: 220px;
+      position: relative;
+    }
+
+    .mascot-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      animation: wave 2.2s ease-in-out infinite;
+      transform-origin: 70% 15%;
+    }
+
+    .bubble {
+      position: absolute;
+      top: 4%;
+      right: -8%;
+      background: #000;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 14px;
+      font-size: 0.78rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 14px;
+      border-width: 6px 6px 0 6px;
+      border-style: solid;
+      border-color: #000 transparent transparent transparent;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      15%      { transform: rotate(4deg); }
+      30%      { transform: rotate(-4deg); }
+      45%      { transform: rotate(4deg); }
+      60%      { transform: rotate(0deg); }
+    }
+
+    /* ENLACES (BOTONES) */
+    .links {
+      width: 100%;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .link-btn {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 2px solid #000;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .link-btn:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .whatsapp {
+      background: #25d366;
+      border-color: #25d366;
+      color: #fff;
+    }
+
+    .whatsapp:hover {
+      background: #1da956;
+      border-color: #1da956;
+      color: #fff;
+    }
+
+    .footer {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 18px 16px 22px;
+      }
+      .brand h1 {
+        font-size: 1.8rem;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <!-- ===== VIDEO DE FONDO ===== -->
-  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="">
-    <source src="video-fondo.mp4?v=18" type="video/mp4">
-    <source src="video-fondo.mp4..MOV?v=18" type="video/quicktime">
+
+  <!-- VIDEO DE FONDO -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="video-fondo.mp4..MOV" type="video/mp4" />
   </video>
+  <div class="overlay"></div>
 
-  <script>
-    (function(){
-      const v = document.getElementById('bg-video');
-      if (!v) return;
-      const tryPlay = () => v.play().catch(()=>{});
-      document.addEventListener('DOMContentLoaded', tryPlay);
-      window.addEventListener('touchstart', function once(){
-        tryPlay(); window.removeEventListener('touchstart', once);
-      }, {once:true});
-    })();
-  </script>
+  <div class="wrap">
+    <div class="card">
+      <div class="spots-strip"></div>
 
-  <!-- ===== MARCO DE MANCHAS ===== -->
-  <div class="cow-frame" aria-hidden="true">
-    <div class="top"></div>
-    <div class="bottom"></div>
-    <div class="left"></div>
-    <div class="right"></div>
+      <div class="content">
+        <!-- LOGO + TÍTULO -->
+        <div class="brand">
+          <img src="Logo nuevo"
+               alt="Logo DayLú Colombian Delights"
+               class="brand-logo" />
+          <h1>DayLú</h1>
+          <span>Colombian Delights</span>
+        </div>
+
+        <p class="tagline">
+          Haz parte de la familia Daylunática 🐄🥄✨
+        </p>
+
+        <!-- MASCOTA -->
+        <div class="mascot-wrapper">
+          <img src="Mascota"
+               alt="Mascota DayLú saludando"
+               class="mascot-img" />
+          <div class="bubble">¡Hola Daylunático! 🐄✨</div>
+        </div>
+
+        <!-- ENLACES -->
+        <div class="links">
+          <a class="link-btn" href="https://www.instagram.com/daylu.colombian" target="_blank">
+            📸 Síguenos en Instagram
+          </a>
+          <a class="link-btn" href="https://www.tiktok.com/@daylucolombian" target="_blank">
+            🎵 TikTok DayLú Colombian
+          </a>
+          <a class="link-btn" href="menu-es.html" target="_self">
+            🇨🇴 Ver menú en Español
+          </a>
+          <a class="link-btn" href="menu-en.html" target="_self">
+            🇺🇸 View menu in English
+          </a>
+          <a class="link-btn whatsapp" href="https://wa.me/XXXXXXXXXXX" target="_blank">
+            💬 Haz tu pedido por WhatsApp
+          </a>
+        </div>
+
+        <div class="footer">
+          Arroz con leche colombiano en New Jersey · Hecho con amor para los Daylunáticos
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- Logo arriba -->
-  <div class="logo"><img src="logo-daylu.png?v=18" alt="Logo DayLú"></div>
-
-  <main class="card">
-    <a id="top"></a>
-    <h1>DayLú – Colombian Delights</h1>
-    <p class="intro-text">✨ Haz parte de la familia Daylunática 🐄🥄✨</p>
-
-    <!-- Menú Español -->
-    <details>
-      <summary>📖 Ver Menú en Español</summary>
-      <div class="imgs">
-        <img src="menu-es-1.png?v=18" alt="Menú Español 1">
-        <img src="Untitled%20design.png?v=18" alt="Menú Español 2">
-      </div>
-      <div class="actions">
-        <a class="mini" href="#top" onclick="this.closest('details').removeAttribute('open');window.scrollTo({top:0,behavior:'smooth'});return false;">⬅ Regresar</a>
-        <a class="mini" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆ Volver arriba</a>
-      </div>
-    </details>
-
-    <!-- Menú Inglés -->
-    <details>
-      <summary>📖 View Menu in English</summary>
-      <div class="imgs">
-        <img src="7.png?v=18" alt="Menu English 1">
-        <img src="Coconut.png?v=18" alt="Menu English 2">
-      </div>
-      <div class="actions">
-        <a class="mini" href="#top" onclick="this.closest('details').removeAttribute('open');window.scrollTo({top:0,behavior:'smooth'});return false;">⬅ Regresar</a>
-        <a class="mini" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆ Back to top</a>
-      </div>
-    </details>
-
-    <!-- UBICACIÓN + HORARIOS -->
-    <section id="ubicacion" aria-labelledby="titulo-ubicacion">
-      <h2 id="titulo-ubicacion">📍 ¿Dónde y cuándo encontrarnos?</h2>
-      <p><strong>Días:</strong> Viernes, Sábado y Domingo</p>
-      <p><strong>Hora:</strong> Desde las 5:00 PM</p>
-      <a class="btn fucsia" href="https://maps.app.goo.gl/rLBVhd2YtjiEwdJT7?g_st=ipc" target="_blank" rel="noopener">
-        🗺️ Ver ubicación en Google Maps
-      </a>
-    </section>
-
-    <!-- Pedido y redes -->
-    <nav class="links" aria-label="Accesos">
-      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedid Daylunático aquí</a>
-      <a class="btn violet" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">📸 Instagram DayLú</a>
-      <a class="btn violet" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
-    </nav>
-  </main>
 </body>
 </html>
