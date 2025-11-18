@@ -4,10 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DayLú – Link en Bio</title>
-  <meta name="description" content="Haz parte de la familia Daylunática 🐄🥄✨" />
+  <meta name="description" content="Haz parte de la familia Daylunática 🐮🥄" />
+
+  <!-- Fuerza a no usar caché del HTML -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    html, body{ background:transparent; }
+    html, body { background:transparent; }
 
     /* ===== VIDEO DE FONDO ===== */
     #bg-video{
@@ -15,13 +24,12 @@
       width:100vw; height:100vh;
       object-fit:cover; object-position:center;
       z-index:0; display:block;
+      background:#000;
     }
 
     /* ===== MARCO DE MANCHAS ===== */
     .cow-frame{pointer-events:none; z-index:2;}
-    .cow-frame div{
-      position:fixed; background:url("IMG_1933.jpeg") center/220px repeat;
-    }
+    .cow-frame div{ position:fixed; background:url("IMG_1933.jpeg?v=18") center/220px repeat; }
     .cow-frame .top{top:0; left:0; width:100vw; height:24px;}
     .cow-frame .bottom{bottom:0; left:0; width:100vw; height:24px;}
     .cow-frame .left{top:0; left:0; width:24px; height:100vh;}
@@ -29,52 +37,103 @@
 
     body{
       font-family:system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
-      min-height:100vh; display:flex; align-items:center; justify-content:center;
-      padding:24px; color:#111;
+      min-height:100vh; display:flex; flex-direction:column;
+      align-items:center; justify-content:flex-start;
+      padding:24px; color:#fff;
     }
 
     .card{
       position:relative; z-index:3;
       width:100%; max-width:560px;
-      background:rgba(255,255,255,0.80);   /* translúcido */
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border:3px solid #000; border-radius:20px;
-      box-shadow:10px 10px 0 #000;
+      background:transparent;
+      border:0; box-shadow:none;
       padding:22px 18px; text-align:center;
     }
-    .logo{width:120px;height:120px;margin:0 auto 14px;border-radius:50%;border:3px solid #000;overflow:hidden;display:grid;place-items:center;background:#fff}
-    .logo img{max-width:90%;max-height:90%}
-    h1{font-size:1.4rem;margin-bottom:8px}
-    p{margin-bottom:18px;font-weight:500}
 
-    .btn{display:block;width:100%;padding:14px;margin:8px 0;border:2px solid #000;border-radius:16px;font-weight:700;text-decoration:none;text-align:center;color:#fff;transition:.2s;box-shadow:6px 6px 0 #000;background:#fff;color:#000}
-    .btn:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 #000}
+    /* ===== LOGO ARRIBA ===== */
+    .logo{
+      position:relative; z-index:4;
+      width:120px; height:120px;
+      margin:6px auto 12px;
+      border-radius:50%;
+      border:3px solid #fff;
+      overflow:hidden; display:grid; place-items:center;
+      background:#0008;
+    }
+    .logo img{max-width:90%; max-height:90%}
+
+    /* === TÍTULO DESTACADO (blanco + borde fino negro) === */
+    h1{
+      font-family:'Playfair Display', serif;
+      font-size:2rem; font-weight:700;
+      color:#fff;
+      -webkit-text-stroke:0.5px #000; /* borde negro delgado */
+      text-shadow:1px 1px 4px rgba(0,0,0,0.8);
+      margin-bottom:10px;
+    }
+
+    /* === FRASE (Anton) — blanco + borde fino negro === */
+    .intro-text{
+      font-family:'Anton', sans-serif;
+      font-size:1.2rem; /* más pequeña como pediste */
+      font-weight:400;
+      color:#fff;
+      -webkit-text-stroke:0.5px #000;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+      margin:16px auto;
+    }
+
+    /* === UBICACIÓN (Anton) — blancos + borde fino === */
+    #ubicacion h2{
+      font-family:'Anton', sans-serif;
+      font-size:1.2rem;
+      color:#fff; -webkit-text-stroke:0.5px #000;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+      margin-bottom:8px;
+    }
+    #ubicacion p{
+      font-family:'Anton', sans-serif;
+      font-size:1.1rem;
+      color:#fff; -webkit-text-stroke:0.5px #000;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+      margin:6px 0;
+    }
+
+    .btn{display:block;width:100%;padding:14px;margin:8px 0;border-radius:16px;font-weight:700;text-decoration:none;text-align:center;color:#fff;transition:.2s;box-shadow:4px 4px 0 rgba(0,0,0,0.7);background:#ff2e8b}
+    .btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(0,0,0,0.7)}
     .violet{background:linear-gradient(135deg,#6b38fb,#9f6bff)}
     .fucsia{background:linear-gradient(135deg,#ff2e8b,#ff73b2)}
 
-    details{background:#fff;border:2px solid #000;border-radius:12px;margin:10px 0;padding:10px;text-align:left}
+    details{background:rgba(0,0,0,0.6);color:#fff;border-radius:12px;margin:10px 0;padding:10px;text-align:left}
     details summary{font-weight:800;cursor:pointer;outline:0}
     details .imgs{margin-top:10px}
-    details img{width:100%;margin-top:10px;border-radius:12px;border:2px solid #000;display:block}
+    details img{width:100%;margin-top:10px;border-radius:12px;border:2px solid #fff;display:block}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .mini{display:inline-block;padding:10px 12px;border:2px solid #000;border-radius:12px;background:#fff;color:#000;
-      text-decoration:none;font-weight:800;box-shadow:4px 4px 0 #000}
-    .mini:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 #000}
+    .mini{display:inline-block;padding:10px 12px;border-radius:12px;background:#000a;color:#fff;
+      text-decoration:none;font-weight:800;box-shadow:2px 2px 0 rgba(0,0,0,0.7)}
+    .mini:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.7)}
 
     .links{display:flex;flex-direction:column;gap:12px;margin-top:8px}
-
-    /* Bloque de ubicación */
-    #ubicacion{margin-top:20px; text-align:center}
-    #ubicacion h2{font-size:1.25rem; margin-bottom:8px}
-    #ubicacion p{margin:4px 0}
   </style>
 </head>
 <body>
   <!-- ===== VIDEO DE FONDO ===== -->
-  <video id="bg-video" autoplay muted loop playsinline preload="auto">
-    <source src="video-fondo.mp4..MOV" type="video/quicktime">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="">
+    <source src="video-fondo.mp4?v=18" type="video/mp4">
+    <source src="video-fondo.mp4..MOV?v=18" type="video/quicktime">
   </video>
+
+  <script>
+    (function(){
+      const v = document.getElementById('bg-video');
+      if (!v) return;
+      const tryPlay = () => v.play().catch(()=>{});
+      document.addEventListener('DOMContentLoaded', tryPlay);
+      window.addEventListener('touchstart', function once(){
+        tryPlay(); window.removeEventListener('touchstart', once);
+      }, {once:true});
+    })();
+  </script>
 
   <!-- ===== MARCO DE MANCHAS ===== -->
   <div class="cow-frame" aria-hidden="true">
@@ -84,18 +143,20 @@
     <div class="right"></div>
   </div>
 
+  <!-- Logo arriba -->
+  <div class="logo"><img src="logo-daylu.png?v=18" alt="Logo DayLú"></div>
+
   <main class="card">
     <a id="top"></a>
-    <div class="logo"><img src="logo-daylu.png" alt="Logo DayLú"></div>
     <h1>DayLú – Colombian Delights</h1>
-    <p>✨ Haz parte de la familia Daylunática 🐄🥄✨</p>
+    <p class="intro-text">✨ Haz parte de la familia Daylunática 🐄🥄✨</p>
 
     <!-- Menú Español -->
     <details>
       <summary>📖 Ver Menú en Español</summary>
       <div class="imgs">
-        <img src="menu-es-1.png?v=4" alt="Menú Español 1">
-        <img src="Untitled%20design.png?v=4" alt="Menú Español 2">
+        <img src="menu-es-1.png?v=18" alt="Menú Español 1">
+        <img src="Untitled%20design.png?v=18" alt="Menú Español 2">
       </div>
       <div class="actions">
         <a class="mini" href="#top" onclick="this.closest('details').removeAttribute('open');window.scrollTo({top:0,behavior:'smooth'});return false;">⬅ Regresar</a>
@@ -107,8 +168,8 @@
     <details>
       <summary>📖 View Menu in English</summary>
       <div class="imgs">
-        <img src="7.png?v=4" alt="Menu English 1">
-        <img src="Coconut.png?v=4" alt="Menu English 2">
+        <img src="7.png?v=18" alt="Menu English 1">
+        <img src="Coconut.png?v=18" alt="Menu English 2">
       </div>
       <div class="actions">
         <a class="mini" href="#top" onclick="this.closest('details').removeAttribute('open');window.scrollTo({top:0,behavior:'smooth'});return false;">⬅ Regresar</a>
@@ -128,7 +189,7 @@
 
     <!-- Pedido y redes -->
     <nav class="links" aria-label="Accesos">
-      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedido aquí Daylunático</a>
+      <a class="btn fucsia" href="https://wa.me/19087263381?text=Hola%2C%20quiero%20hacer%20un%20pedido%20🥄🐄" target="_blank" rel="noopener">🥄 Haz tu pedid Daylunático aquí</a>
       <a class="btn violet" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">📸 Instagram DayLú</a>
       <a class="btn violet" href="https://www.tiktok.com/@daylucolombian" target="_blank" rel="noopener">🎥 TikTok DayLú</a>
     </nav>
