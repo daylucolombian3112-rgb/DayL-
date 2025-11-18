@@ -2,19 +2,197 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Prueba imágenes DayLú</title>
+  <title>DayLú Colombian Delights</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #000;
+      color: #fdf5e6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* FONDO MANCHAS DE DAYLÚ */
+    .page-wrapper {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 10% 20%, #ffffff 0 18px, transparent 18px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 25px, transparent 25px),
+        radial-gradient(circle at 30% 80%, #ffffff 0 22px, transparent 22px),
+        #000000;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 24px;
+      border: 3px solid #fff;
+      max-width: 900px;
+      width: 100%;
+      padding: 24px 24px 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    /* LOGO */
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .logo-area img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+    }
+
+    .logo-text h1 {
+      font-size: 2.2rem;
+    }
+
+    .logo-text span {
+      font-size: 0.9rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #f4c95d;
+    }
+
+    .left { display: flex; flex-direction: column; gap: 16px; }
+
+    .tagline {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fce38a;
+    }
+
+    .description {
+      font-size: 0.98rem;
+      line-height: 1.4;
+      color: #f8f0e3;
+    }
+
+    /* REDES */
+    .socials { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .socials a {
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .cta a {
+      background: #00b37a;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 12px;
+      display: inline-block;
+    }
+
+    /* MASCOTA */
+    .right { display: flex; align-items: center; justify-content: center; }
+
+    .mascot-wrapper { position: relative; max-width: 260px; }
+
+    .mascot-wrapper img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Animación del saludo */
+    .mascot-wave {
+      animation: wave 2.2s ease-in-out infinite;
+      transform-origin: 70% 15%;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      15% { transform: rotate(4deg); }
+      30% { transform: rotate(-4deg); }
+      45% { transform: rotate(4deg); }
+      60% { transform: rotate(0deg); }
+    }
+
+    /* BURBUJA */
+    .bubble {
+      position: absolute;
+      top: 8%;
+      right: -10%;
+      background: #fff;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+    }
+
+  </style>
 </head>
-<body style="background:#000; color:#fff; text-align:center; padding:20px; font-family:sans-serif;">
 
-  <h1>Prueba de logo y mascota DayLú</h1>
-  <p>Si ves las dos imágenes abajo, todo está bien 🐄✨</p>
+<body>
+  <div class="page-wrapper">
+    <div class="card">
 
-  <h2>Logo</h2>
-  <img src="54639D8A-08F6-4E8F-BAE1-F10F5B0F19AF.png" alt="Logo DayLú" style="width:200px; border-radius:50%; border:3px solid #fff;">
+      <!-- MASCOTA -->
+      <div class="right">
+        <div class="mascot-wrapper">
+          <img src="0FC60E17-0FDA-42C6-9B4E-264988AFE9DC.jpeg" class="mascot-wave">
+          <div class="bubble">¡Hola Daylunático! 🐄✨</div>
+        </div>
+      </div>
 
-  <h2>Mascota</h2>
-  <img src="0FC60E17-0FDA-42C6-9B4E-264988AFE9DC.jpeg" alt="Mascota DayLú" style="width:280px;">
+      <!-- LOGO + TEXTO -->
+      <div class="left">
 
+        <div class="logo-area">
+          <img src="54639D8A-08F6-4E8F-BAE1-F10F5B0F19AF.png">
+          <div class="logo-text">
+            <h1>DayLú</h1>
+            <span>Colombian Delights</span>
+          </div>
+        </div>
+
+        <p class="tagline">Arroz con leche colombiano hecho con amor para la familia Daylunática 🥄</p>
+
+        <p class="description">
+          Disfruta nuestro arroz con leche cremoso, toppings irresistibles y ediciones especiales como 
+          <strong>Hechizo Morado</strong>.  
+          ¡Síguenos para saber dónde estaremos cada fin de semana!
+        </p>
+
+        <div class="socials">
+          <a href="https://www.instagram.com/daylu.colombian" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@daylucolombian" target="_blank">TikTok</a>
+        </div>
+
+        <div class="cta">
+          <a href="https://wa.me/XXXXXXXXXXX" target="_blank">
+            Haz tu pedido por WhatsApp 🐄✨
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </body>
 </html>
