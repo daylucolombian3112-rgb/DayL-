@@ -10,7 +10,7 @@
 
     body{
       font-family:system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
-      background:#fff;
+      background:#000;
       min-height:100vh;
       display:flex;
       align-items:center;
@@ -19,6 +19,7 @@
       color:#111;
       position:relative;
       z-index:0;
+      overflow-x:hidden;
     }
 
     /* VIDEO DE FONDO */
@@ -32,14 +33,14 @@
       z-index:-2;
     }
 
-    /* capa con manchas */
+    /* CAPA CON MANCHAS SOBRE EL VIDEO */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       background:url("IMG_1933.jpeg") repeat center center;
       background-size:220px;
-      opacity:0.30; 
+      opacity:0.18; /* AJUSTA LA INTENSIDAD DE LAS MANCHAS */
       z-index:-1;
     }
 
@@ -123,9 +124,9 @@
 </head>
 <body>
 
-  <!-- VIDEO DE FONDO -->
+  <!-- VIDEO DE FONDO (.MOV) -->
   <video autoplay muted loop playsinline id="video-fondo">
-    <source src="video-fondo.mp4" type="video/mp4">
+    <source src="video-fondo.MOV">
   </video>
 
   <main class="card">
