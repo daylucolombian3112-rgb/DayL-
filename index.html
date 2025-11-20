@@ -10,7 +10,7 @@
 
     body{
       font-family:system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
-      background:#000;             /* fondo negro detrás del video */
+      background:#fff;
       min-height:100vh;
       display:flex;
       align-items:center;
@@ -22,7 +22,7 @@
       overflow-x:hidden;
     }
 
-    /* VIDEO DE FONDO A PANTALLA COMPLETA */
+    /* VIDEO DE FONDO – si no se reproduce, se verá el póster y las manchas */
     #video-fondo{
       position:fixed;
       top:0;
@@ -30,6 +30,17 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      z-index:-2;
+    }
+
+    /* capa de manchas sobre el video / poster */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:url("IMG_1933.jpeg") repeat center center;
+      background-size:220px;
+      opacity:0.35;
       z-index:-1;
     }
 
@@ -113,8 +124,8 @@
 </head>
 <body>
 
-  <!-- VIDEO DE FONDO: PROBAMOS DOS NOMBRES POSIBLES -->
-  <video autoplay muted loop playsinline id="video-fondo">
+  <!-- VIDEO DE FONDO – usa mp4 y mov; poster por si falla -->
+  <video autoplay muted loop playsinline id="video-fondo" poster="IMG_1933.jpeg">
     <source src="video-fondo.mp4" type="video/mp4">
     <source src="video-fondo.MOV" type="video/quicktime">
   </video>
