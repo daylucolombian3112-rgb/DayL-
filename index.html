@@ -21,6 +21,10 @@
       color: #fff;
       position: relative;
       overflow: hidden;
+
+      /* FONDO DE MANCHAS DE VACA COMO RESPALDO */
+      background: #fff url("IMG_1933.jpeg") repeat center center;
+      background-size: 220px;
     }
 
     /* VIDEO DE FONDO */
@@ -35,7 +39,7 @@
       transform: translate(-50%, -50%);
       z-index: -2;
       object-fit: cover;
-      background: #000;
+      background: #000; /* si el video no carga, se verá este fondo detrás de la capa oscura */
     }
 
     /* CAPA OSCURA ENCIMA DEL VIDEO PARA LEER MEJOR EL TEXTO */
@@ -70,161 +74,4 @@
     .logo img {
       max-width: 180px;
       height: auto;
-      display: block;
-    }
-
-    .title {
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.9;
-      margin-bottom: 14px;
-    }
-
-    .badges {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-      font-size: 0.78rem;
-    }
-
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      background: rgba(0, 0, 0, 0.3);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .btn-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: rgba(0, 0, 0, 0.65);
-      color: #fff;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
-    }
-
-    .btn-link strong {
-      font-weight: 700;
-    }
-
-    .btn-link:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-      border-color: #ffffff;
-      background: rgba(0, 0, 0, 0.85);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #ff1493, #a020f0);
-      border-color: transparent;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #ff3da8, #b63df5);
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 0.7rem;
-      opacity: 0.8;
-      margin-top: 10px;
-      line-height: 1.3;
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 18px 14px 22px;
-      }
-      .logo img {
-        max-width: 150px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- VIDEO DE FONDO -->
-  <video id="bg-video" autoplay muted loop playsinline>
-    <!-- IMPORTANTE: cambia fondo.mp4 por el nombre real de tu archivo -->
-    <source src="fondo.mp4" type="video/mp4" />
-    Tu navegador no soporta video HTML5.
-  </video>
-
-  <!-- Capa oscura encima del video -->
-  <div class="overlay"></div>
-
-  <div class="wrapper">
-    <div class="card">
-
-      <!-- LOGO DAYLÚ -->
-      <div class="logo">
-        <img src="logo-daylu.png" alt="DayLú Colombian Delights" />
-        <!-- Asegúrate que este archivo exista con ese nombre -->
-      </div>
-
-      <div class="title">DayLú Colombian Delights</div>
-      <div class="subtitle">Haz parte de la familia Daylunática 🐄🥄</div>
-
-      <div class="badges">
-        <span class="badge">Arroz con leche colombiano</span>
-        <span class="badge">New Jersey · USA</span>
-      </div>
-
-      <div class="links">
-        <a class="btn-link btn-primary" href="https://wa.me/1XXXXXXXXXX" target="_blank" rel="noopener">
-          🥄 <strong>Haz tu pedido Daylunático</strong>
-        </a>
-
-        <a class="btn-link" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">
-          📸 Síguenos en Instagram
-        </a>
-
-        <a class="btn-link" href="https://www.tiktok.com/@daylu.colombian" target="_blank" rel="noopener">
-          🎵 Síguenos en TikTok
-        </a>
-
-        <a class="btn-link" href="menu-es.html" target="_blank">
-          📋 Ver menú en español
-        </a>
-
-        <a class="btn-link" href="menu-en.html" target="_blank">
-          📋 View menu in English
-        </a>
-      </div>
-
-      <div class="footer">
-        Viernes, sábado y domingo desde las 5:00 p.m. (NJ) · Hasta agotar existencias<br />
-        Gracias por apoyar este pequeño gran sueño 💜
-      </div>
-    </div>
-  </div>
-
-</body>
-</html>
+      display:
