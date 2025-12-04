@@ -22,7 +22,7 @@
       position: relative;
       overflow: hidden;
 
-      /* FONDO DE MANCHAS DE VACA COMO RESPALDO */
+      /* Fondo de respaldo si el video no carga */
       background: #fff url("IMG_1933.jpeg") repeat center center;
       background-size: 220px;
     }
@@ -39,10 +39,10 @@
       transform: translate(-50%, -50%);
       z-index: -2;
       object-fit: cover;
-      background: #000; /* si el video no carga, se verá este fondo detrás de la capa oscura */
+      background: #000;
     }
 
-    /* CAPA OSCURA ENCIMA DEL VIDEO PARA LEER MEJOR EL TEXTO */
+    /* CAPA OSCURA ENCIMA DEL VIDEO PARA LEER EL TEXTO */
     .overlay {
       position: fixed;
       inset: 0;
@@ -74,4 +74,45 @@
     .logo img {
       max-width: 180px;
       height: auto;
-      display:
+      display: block;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 14px;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 0.78rem;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bot
+
