@@ -9,7 +9,7 @@
     :root{
       --morado:#7b2cbf;
       --morado2:#5a189a;
-      --glass: rgba(255,255,255,.78);
+      --glass: rgba(255,255,255,.60);
       --shadow: 0 14px 35px rgba(0,0,0,.25);
     }
 
@@ -36,29 +36,33 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transform:scale(1.03);
+      transform:scale(1.05);
+      filter: brightness(1.08) contrast(1.06);
     }
     .video-bg::after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
+      background:linear-gradient(
+        180deg,
+        rgba(0,0,0,.20),
+        rgba(0,0,0,.15)
+      );
+      pointer-events:none;
     }
 
-    /* BORDE DE MANCHAS */
+    /* BORDE MANCHAS */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       z-index:-2;
       pointer-events:none;
-
       padding:18px;
       background:
         linear-gradient(#0000,#0000) content-box,
         url("IMG_1933.jpeg") border-box;
       border:18px solid transparent;
-
       -webkit-mask:
         linear-gradient(#000 0 0) content-box,
         linear-gradient(#000 0 0);
@@ -76,7 +80,8 @@
       text-align:center;
       color:#fff;
       margin:10px 0 6px;
-      text-shadow:0 8px 20px rgba(0,0,0,.35);
+      text-shadow:0 6px 16px rgba(0,0,0,.38);
+      font-size:28px;
     }
 
     .subtitle{
@@ -84,7 +89,7 @@
       color:#fff;
       font-size:16px;
       margin-bottom:18px;
-      text-shadow:0 6px 18px rgba(0,0,0,.35);
+      text-shadow:0 4px 10px rgba(0,0,0,.45);
     }
 
     .card{
@@ -107,11 +112,13 @@
       text-decoration:none;
       background:linear-gradient(135deg,var(--morado),var(--morado2));
       box-shadow:var(--shadow);
+      border:none;
+      cursor:pointer;
       border-radius:26px 18px 28px 20px / 18px 26px 16px 30px;
     }
 
     .blob-btn.light{
-      background:#fff;
+      background:rgba(255,255,255,.92);
       color:#2b2b2b;
       border:2px solid rgba(123,44,191,.25);
     }
@@ -121,6 +128,13 @@
       font-weight:900;
       margin:8px 0 12px;
       font-size:20px;
+      color:#222;
+    }
+
+    /* MENÚ OCULTO */
+    #menu{
+      display:none;
+      margin-top:16px;
     }
 
     .menu-img{
@@ -137,7 +151,7 @@
       display:none;
       width:min(520px,92%);
       margin:10px auto;
-      background:#fff;
+      background:rgba(255,255,255,.92);
       border-radius:18px;
       box-shadow:var(--shadow);
       padding:12px;
@@ -166,7 +180,6 @@
     }
     .footer-logo img{
       width:140px;
-      filter:drop-shadow(0 12px 28px rgba(0,0,0,.3));
     }
 
     .fine{
@@ -174,14 +187,14 @@
       color:#fff;
       margin-top:14px;
       font-size:13px;
-      text-shadow:0 6px 18px rgba(0,0,0,.35);
+      text-shadow:0 4px 10px rgba(0,0,0,.45);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- VIDEO DE FONDO -->
+  <!-- VIDEO -->
   <div class="video-bg">
     <video autoplay muted loop playsinline>
       <source src="IMG_4374.mov" type="video/quicktime">
@@ -198,13 +211,14 @@
 
     <div class="card">
 
-      <a class="blob-btn" href="#inicio">👋 Bienvenido Daylunático</a>
+      <a class="blob-btn">👋 Bienvenido Daylunático</a>
 
-      <div id="inicio" class="section-title">
+      <div class="section-title">
         Arroz con leche a tu gusto y Obleas Nube
       </div>
 
-      <a class="blob-btn" href="#menu">📋 Menú</a>
+      <!-- BOTÓN MENÚ -->
+      <button class="blob-btn" onclick="toggleMenu()">📋 Menú</button>
 
       <a class="blob-btn light"
          href="https://maps.app.goo.gl/tgM7bwM5uB4q6ggQA?g_st=ic"
@@ -233,30 +247,36 @@
       </a>
 
       <div class="footer-logo">
-        <img src="logo-daylu.png" alt="DayLú logo">
+        <img src="logo-daylu.png" alt="Logo DayLú">
       </div>
-
     </div>
 
+    <!-- MENÚ OCULTO -->
     <div id="menu" class="card">
       <div class="section-title">Menú DayLú</div>
 
       <img class="menu-img"
            src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG"
-           alt="Menú DayLú 1">
+           alt="Menú 1">
 
       <img class="menu-img"
            src="Untitled%20design.png"
-           alt="Menú DayLú 2">
+           alt="Menú 2">
     </div>
 
-    <div class="fine">
-      © 2026 DayLú Colombian Delights · Hecho con amor 💜
-    </div>
-
+    <div class="fine">© 2026 DayLú Colombian Delights</div>
   </div>
 
   <script>
+    function toggleMenu(){
+      const menu = document.getElementById('menu');
+      const show = menu.style.display !== 'block';
+      menu.style.display = show ? 'block' : 'none';
+      if(show){
+        menu.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    }
+
     function toggleFollow(){
       const p = document.getElementById('followPanel');
       p.style.display = p.style.display === 'block' ? 'none' : 'block';
