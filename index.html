@@ -1,180 +1,270 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DayLú – Postres Colombianos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DayLú Colombian Delights</title>
 
   <style>
-    body {
-      margin: 0;
+    :root{
+      --morado:#7b2cbf;
+      --morado2:#5a189a;
+      --glass: rgba(255,255,255,.78);
+      --shadow: 0 14px 35px rgba(0,0,0,.25);
+    }
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #fff;
-      color: #333;
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+      color:#111;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px 40px;
+    /* VIDEO FONDO */
+    .video-bg{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      overflow:hidden;
+      background:#000;
+    }
+    .video-bg video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.03);
+    }
+    .video-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
     }
 
-    header h1 {
-      color: #6b2d5c;
-      font-size: 36px;
-      margin-bottom: 10px;
+    /* BORDE DE MANCHAS */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+
+      padding:18px;
+      background:
+        linear-gradient(#0000,#0000) content-box,
+        url("IMG_1933.jpeg") border-box;
+      border:18px solid transparent;
+
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
     }
 
-    header p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto 25px;
+    .wrap{
+      max-width:820px;
+      margin:0 auto;
+      padding:26px 14px 40px;
     }
 
-    .btn-whatsapp {
-      display: inline-block;
-      background-color: #25D366;
-      color: #fff;
-      padding: 14px 26px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-bottom: 40px;
+    h1{
+      text-align:center;
+      color:#fff;
+      margin:10px 0 6px;
+      text-shadow:0 8px 20px rgba(0,0,0,.35);
     }
 
-    /* MENÚ */
-    .menu-daylu {
-      text-align: center;
-      padding: 50px 20px;
-      max-width: 900px;
-      margin: auto;
+    .subtitle{
+      text-align:center;
+      color:#fff;
+      font-size:16px;
+      margin-bottom:18px;
+      text-shadow:0 6px 18px rgba(0,0,0,.35);
     }
 
-    .menu-daylu h2 {
-      color: #6b2d5c;
-      margin-bottom: 10px;
+    .card{
+      background:var(--glass);
+      backdrop-filter:blur(8px);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:22px 16px;
+      margin-top:14px;
     }
 
-    .menu-daylu p {
-      color: #555;
-      margin-bottom: 25px;
+    .blob-btn{
+      display:block;
+      width:min(520px,92%);
+      margin:12px auto;
+      padding:14px 18px;
+      text-align:center;
+      font-weight:800;
+      color:#fff;
+      text-decoration:none;
+      background:linear-gradient(135deg,var(--morado),var(--morado2));
+      box-shadow:var(--shadow);
+      border-radius:26px 18px 28px 20px / 18px 26px 16px 30px;
     }
 
-    .menu-imagen {
-      width: 100%;
-      max-width: 650px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      margin-bottom: 25px;
+    .blob-btn.light{
+      background:#fff;
+      color:#2b2b2b;
+      border:2px solid rgba(123,44,191,.25);
     }
 
-    .btn-menu {
-      display: inline-block;
-      background-color: #6b2d5c;
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
+    .section-title{
+      text-align:center;
+      font-weight:900;
+      margin:8px 0 12px;
+      font-size:20px;
     }
 
-    /* UBICACIÓN */
-    .ubicacion {
-      text-align: center;
-      margin: 60px auto;
-      padding: 30px 20px;
-      background-color: #f8f2f6;
-      border-radius: 15px;
-      max-width: 700px;
+    .menu-img{
+      width:100%;
+      max-width:760px;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      margin:12px auto;
+      display:block;
+      background:#fff;
     }
 
-    .ubicacion h2 {
-      color: #6b2d5c;
-      margin-bottom: 10px;
+    .follow-panel{
+      display:none;
+      width:min(520px,92%);
+      margin:10px auto;
+      background:#fff;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:12px;
     }
 
-    .ubicacion p {
-      margin-bottom: 20px;
+    .follow-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
     }
 
-    .btn-mapa {
-      display: inline-block;
-      background-color: #6b2d5c;
-      color: white;
-      padding: 14px 26px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
+    .small-btn{
+      display:block;
+      padding:12px;
+      text-align:center;
+      font-weight:900;
+      color:#fff;
+      text-decoration:none;
+      background:#111;
+      border-radius:16px;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
-      color: #777;
+    .footer-logo{
+      text-align:center;
+      margin-top:18px;
+    }
+    .footer-logo img{
+      width:140px;
+      filter:drop-shadow(0 12px 28px rgba(0,0,0,.3));
+    }
+
+    .fine{
+      text-align:center;
+      color:#fff;
+      margin-top:14px;
+      font-size:13px;
+      text-shadow:0 6px 18px rgba(0,0,0,.35);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <header>
-    <h1>DayLú</h1>
-    <p>
-      Postres colombianos irresistibles hechos con amor.
-      Arroz con leche, fresas con crema y obleas que enamoran 🍓
-    </p>
+  <!-- VIDEO DE FONDO -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="IMG_4374.mov" type="video/quicktime">
+    </video>
+  </div>
 
-    <a 
-      href="https://wa.me/1XXXXXXXXXX"
-      target="_blank"
-      class="btn-whatsapp">
-      📲 Pedir por WhatsApp
-    </a>
-  </header>
+  <div class="wrap">
 
-  <!-- MENÚ -->
-  <section class="menu-daylu">
-    <h2>🍓 Menú DayLú – Postres Colombianos</h2>
-    <p>
-      Arroz con leche · Fresas con crema · Obleas · Combos especiales
-    </p>
+    <h1>DayLú Colombian Delights</h1>
+    <div class="subtitle">
+      <strong>Arroz con leche a tu gusto y Obleas Nube</strong><br>
+      Bienvenido a la familia <strong>Daylunática</strong> 💜
+    </div>
 
-    <img 
-      src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG"
-      alt="Menú DayLú Postres Colombianos"
-      class="menu-imagen"
-    >
+    <div class="card">
 
-    <br>
+      <a class="blob-btn" href="#inicio">👋 Bienvenido Daylunático</a>
 
-    <a 
-      href="Diseño sin título.pdf.pdf"
-      target="_blank"
-      class="btn-menu">
-      📄 Ver menú completo (PDF)
-    </a>
-  </section>
+      <div id="inicio" class="section-title">
+        Arroz con leche a tu gusto y Obleas Nube
+      </div>
 
-  <!-- UBICACIÓN -->
-  <section class="ubicacion">
-    <h2>📍 Encuéntranos</h2>
-    <p>
-      Haz tu pedido y ven por tus postres colombianos recién preparados.
-    </p>
+      <a class="blob-btn" href="#menu">📋 Menú</a>
 
-    <a 
-      href="https://maps.app.goo.gl/tgM7bwM5uB4q6ggQA?g_st=ic"
-      target="_blank"
-      class="btn-mapa">
-      📍 Cómo llegar en Google Maps
-    </a>
-  </section>
+      <a class="blob-btn light"
+         href="https://maps.app.goo.gl/tgM7bwM5uB4q6ggQA?g_st=ic"
+         target="_blank">
+        📍 Aquí te esperamos
+      </a>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 DayLú Colombian Delights · Todos los derechos reservados
-  </footer>
+      <button class="blob-btn" onclick="toggleFollow()">✨ Síguenos</button>
+
+      <div class="follow-panel" id="followPanel">
+        <div class="follow-grid">
+          <a class="small-btn"
+             href="https://www.instagram.com/daylu.colombian?igsh=cjhxY3htdDJwZ212&utm_source=qr"
+             target="_blank">Instagram</a>
+
+          <a class="small-btn"
+             href="https://www.tiktok.com/@daylucolombian"
+             target="_blank">TikTok</a>
+        </div>
+      </div>
+
+      <a class="blob-btn"
+         href="https://wa.me/message/24BRSCQXL2SQL1"
+         target="_blank">
+        💬 Haz tu pedido aquí
+      </a>
+
+      <div class="footer-logo">
+        <img src="logo-daylu.png" alt="DayLú logo">
+      </div>
+
+    </div>
+
+    <div id="menu" class="card">
+      <div class="section-title">Menú DayLú</div>
+
+      <img class="menu-img"
+           src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG"
+           alt="Menú DayLú 1">
+
+      <img class="menu-img"
+           src="Untitled%20design.png"
+           alt="Menú DayLú 2">
+    </div>
+
+    <div class="fine">
+      © 2026 DayLú Colombian Delights · Hecho con amor 💜
+    </div>
+
+  </div>
+
+  <script>
+    function toggleFollow(){
+      const p = document.getElementById('followPanel');
+      p.style.display = p.style.display === 'block' ? 'none' : 'block';
+      if(p.style.display === 'block'){
+        p.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    }
+  </script>
 
 </body>
 </html>
