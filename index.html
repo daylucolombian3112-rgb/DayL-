@@ -1,228 +1,180 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DayLú – Link en Bio</title>
-  <meta name="description" content="Haz parte de la familia Daylunática 🐄🥄✨" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DayLú – Postres Colombianos</title>
+
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-
-    body{
-      font-family:system-ui,-apple-system,"Segoe UI",Inter,Arial,sans-serif;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      position:relative;
-      overflow:hidden;
-
-      /* Fondo de respaldo (manchas) */
-      background:#fff url("IMG_1933.jpeg") repeat center center;
-      background-size:220px;
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fff;
+      color: #333;
     }
 
-    /* Video de fondo */
-    #bg-video{
-      position:fixed;
-      top:50%;
-      left:50%;
-      min-width:100%;
-      min-height:100%;
-      width:auto;
-      height:auto;
-      transform:translate(-50%,-50%);
-      z-index:-2;
-      object-fit:cover;
-      background:#000; /* detrás queda el patrón */
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
     }
 
-    /* Capa oscura encima del video */
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.45);
-      z-index:-1;
+    header h1 {
+      color: #6b2d5c;
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
-    .wrapper{
-      width:100%;
-      max-width:420px;
-      padding:24px 18px 32px;
+    header p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 25px;
     }
 
-    .card{
-      background:rgba(0,0,0,.75);
-      border-radius:24px;
-      padding:20px 18px 26px;
-      border:1px solid rgba(255,255,255,.22);
-      backdrop-filter:blur(10px);
-      box-shadow:0 18px 45px rgba(0,0,0,.5);
+    .btn-whatsapp {
+      display: inline-block;
+      background-color: #25D366;
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 40px;
     }
 
-    .logo{
-      display:flex;
-      justify-content:center;
-      margin-bottom:14px;
-    }
-    .logo img{
-      max-width:180px;
-      height:auto;
-      display:block;
+    /* MENÚ */
+    .menu-daylu {
+      text-align: center;
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
-    .title{
-      text-align:center;
-      font-size:1.3rem;
-      font-weight:700;
-      margin-bottom:4px;
-    }
-    .subtitle{
-      text-align:center;
-      font-size:.9rem;
-      opacity:.9;
-      margin-bottom:14px;
+    .menu-daylu h2 {
+      color: #6b2d5c;
+      margin-bottom: 10px;
     }
 
-    .badges{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-      font-size:.78rem;
-    }
-    .badge{
-      padding:4px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.35);
-      background:rgba(0,0,0,.3);
-      display:inline-flex;
-      align-items:center;
-      gap:4px;
+    .menu-daylu p {
+      color: #555;
+      margin-bottom: 25px;
     }
 
-    .links{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-bottom:14px;
+    .menu-imagen {
+      width: 100%;
+      max-width: 650px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      margin-bottom: 25px;
     }
 
-    .btn-link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      width:100%;
-      padding:12px 14px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:600;
-      font-size:.95rem;
-      border:1px solid rgba(255,255,255,.3);
-      background:rgba(0,0,0,.65);
-      color:#fff;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .btn-link strong{font-weight:700}
-    .btn-link:hover{
-      transform:translateY(-1px);
-      box-shadow:0 10px 25px rgba(0,0,0,.4);
-      border-color:#fff;
-      background:rgba(0,0,0,.85);
+    .btn-menu {
+      display: inline-block;
+      background-color: #6b2d5c;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .btn-primary{
-      background:linear-gradient(135deg,#ff1493,#a020f0);
-      border-color:transparent;
-    }
-    .btn-primary:hover{
-      background:linear-gradient(135deg,#ff3da8,#b63df5);
-    }
-
-    .footer{
-      text-align:center;
-      font-size:.7rem;
-      opacity:.8;
-      margin-top:10px;
-      line-height:1.3;
+    /* UBICACIÓN */
+    .ubicacion {
+      text-align: center;
+      margin: 60px auto;
+      padding: 30px 20px;
+      background-color: #f8f2f6;
+      border-radius: 15px;
+      max-width: 700px;
     }
 
-    @media (max-width:480px){
-      .card{padding:18px 14px 22px}
-      .logo img{max-width:150px}
+    .ubicacion h2 {
+      color: #6b2d5c;
+      margin-bottom: 10px;
+    }
+
+    .ubicacion p {
+      margin-bottom: 20px;
+    }
+
+    .btn-mapa {
+      display: inline-block;
+      background-color: #6b2d5c;
+      color: white;
+      padding: 14px 26px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #777;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Si NO tienes fondo.mp4 en el repo, igual no pasa nada.
-       Este script lo oculta si falla y se verá el fondo de vaca. -->
-  <video id="bg-video" autoplay muted loop playsinline>
-    <source src="fondo.mp4" type="video/mp4">
-  </video>
+  <!-- HERO -->
+  <header>
+    <h1>DayLú</h1>
+    <p>
+      Postres colombianos irresistibles hechos con amor.
+      Arroz con leche, fresas con crema y obleas que enamoran 🍓
+    </p>
 
-  <div class="overlay"></div>
+    <a 
+      href="https://wa.me/1XXXXXXXXXX"
+      target="_blank"
+      class="btn-whatsapp">
+      📲 Pedir por WhatsApp
+    </a>
+  </header>
 
-  <div class="wrapper">
-    <div class="card">
+  <!-- MENÚ -->
+  <section class="menu-daylu">
+    <h2>🍓 Menú DayLú – Postres Colombianos</h2>
+    <p>
+      Arroz con leche · Fresas con crema · Obleas · Combos especiales
+    </p>
 
-      <div class="logo">
-        <img src="logo-daylu.png" alt="DayLú Colombian Delights">
-      </div>
+    <img 
+      src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG"
+      alt="Menú DayLú Postres Colombianos"
+      class="menu-imagen"
+    >
 
-      <div class="title">DayLú Colombian Delights</div>
-      <div class="subtitle">Haz parte de la familia Daylunática 🐄🥄</div>
+    <br>
 
-      <div class="badges">
-        <span class="badge">Arroz con leche colombiano</span>
-        <span class="badge">New Jersey · USA</span>
-      </div>
+    <a 
+      href="Diseño sin título.pdf.pdf"
+      target="_blank"
+      class="btn-menu">
+      📄 Ver menú completo (PDF)
+    </a>
+  </section>
 
-      <div class="links">
-        <a class="btn-link btn-primary" href="https://wa.me/1XXXXXXXXXX" target="_blank" rel="noopener">
-          🥄 <strong>Haz tu pedido Daylunático</strong>
-        </a>
+  <!-- UBICACIÓN -->
+  <section class="ubicacion">
+    <h2>📍 Encuéntranos</h2>
+    <p>
+      Haz tu pedido y ven por tus postres colombianos recién preparados.
+    </p>
 
-        <a class="btn-link" href="https://www.instagram.com/daylu.colombian" target="_blank" rel="noopener">
-          📸 Síguenos en Instagram
-        </a>
+    <a 
+      href="https://maps.app.goo.gl/tgM7bwM5uB4q6ggQA?g_st=ic"
+      target="_blank"
+      class="btn-mapa">
+      📍 Cómo llegar en Google Maps
+    </a>
+  </section>
 
-        <a class="btn-link" href="https://www.tiktok.com/@daylu.colombian" target="_blank" rel="noopener">
-          🎵 Síguenos en TikTok
-        </a>
-
-        <a class="btn-link" href="https://maps.app.goo.gl/TU_LINK_DE_UBICACION" target="_blank" rel="noopener">
-          📍 Cómo llegar (Google Maps)
-        </a>
-
-        <!-- Menús (estos nombres coinciden con los de tu repo) -->
-        <a class="btn-link" href="menu-es.html" target="_blank" rel="noopener">
-          📋 Ver menú en español
-        </a>
-
-        <a class="btn-link" href="menu-en.html" target="_blank" rel="noopener">
-          📋 View menu in English
-        </a>
-      </div>
-
-      <div class="footer">
-        Viernes, sábado y domingo desde las 5:00 p.m. (NJ) · Hasta agotar existencias<br>
-        Gracias por apoyar este pequeño gran sueño 💜
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-    // Si el video no carga, lo escondemos para que se vea el fondo de vaca sin pantalla negra
-    const v = document.getElementById('bg-video');
-    v.addEventListener('error', () => v.style.display = 'none');
-    setTimeout(() => { if (v.readyState === 0) v.style.display = 'none'; }, 1200);
-  </script>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 DayLú Colombian Delights · Todos los derechos reservados
+  </footer>
 
 </body>
 </html>
