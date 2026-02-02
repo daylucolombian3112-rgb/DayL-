@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DayLú Colombian Delights</title>
+  <title>DayLú</title>
 
   <style>
     :root{
       --morado:#7b2cbf;
       --morado2:#5a189a;
-      --glass: rgba(255,255,255,.45);
-      --shadow: 0 14px 35px rgba(0,0,0,.22);
+
+      /* MUCHO más transparente para que se vea el video */
+      --glass: rgba(255,255,255,.18);
+
+      --shadow: 0 14px 35px rgba(0,0,0,.20);
     }
 
     html{ scroll-behavior:smooth; }
@@ -36,14 +39,15 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transform:scale(1.08);
-      filter: brightness(1.15) contrast(1.08);
+      transform:scale(1.10);
+      filter: brightness(1.25) contrast(1.08) saturate(1.10);
     }
+    /* overlay ULTRA suave */
     .video-bg::after{
       content:"";
       position:absolute;
       inset:0;
-      background:rgba(0,0,0,.08);
+      background:rgba(0,0,0,.03);
       pointer-events:none;
     }
 
@@ -64,6 +68,7 @@
         linear-gradient(#000 0 0);
       -webkit-mask-composite:xor;
       mask-composite:exclude;
+      opacity:.95;
     }
 
     .wrap{
@@ -76,32 +81,36 @@
     .top-logo{
       display:flex;
       justify-content:center;
-      margin:10px 0 14px;
+      margin:10px 0 10px;
     }
     .top-logo img{
       width:160px;
       max-width:70vw;
-      filter:drop-shadow(0 10px 25px rgba(0,0,0,.35));
+      filter:drop-shadow(0 12px 28px rgba(0,0,0,.35));
     }
 
     .subtitle{
       text-align:center;
       color:#fff;
       font-size:16px;
-      margin-bottom:18px;
-      text-shadow:0 3px 8px rgba(0,0,0,.35);
+      margin-bottom:14px;
       line-height:1.4;
+      text-shadow:0 3px 10px rgba(0,0,0,.40);
     }
 
+    /* TARJETA: súper transparente + sin blur (el blur apaga el video) */
     .card{
       background:var(--glass);
-      backdrop-filter:blur(4px);
       border-radius:22px;
       box-shadow:var(--shadow);
       padding:22px 16px;
-      margin-top:14px;
+      margin-top:12px;
+
+      /* borde suave para que se note la caja sin tapar */
+      border: 1px solid rgba(255,255,255,.25);
     }
 
+    /* BOTONES: morado translúcido para que se vea el video */
     .blob-btn{
       display:block;
       width:min(520px,92%);
@@ -111,51 +120,39 @@
       font-weight:800;
       color:#fff;
       text-decoration:none;
-      background:linear-gradient(135deg,var(--morado),var(--morado2));
+
+      background: linear-gradient(
+        135deg,
+        rgba(123,44,191,.70),
+        rgba(90,24,154,.70)
+      );
+
       box-shadow:var(--shadow);
       border:none;
       cursor:pointer;
+
       border-radius:26px 18px 28px 20px / 18px 26px 16px 30px;
+      backdrop-filter: blur(2px); /* mínimo, sin tapar */
     }
 
     .blob-btn.light{
-      background:rgba(255,255,255,.92);
-      color:#2b2b2b;
+      background: rgba(255,255,255,.55);
+      color:#111;
       border:2px solid rgba(123,44,191,.25);
+      backdrop-filter: blur(2px);
     }
 
-    .section-title{
-      text-align:center;
-      font-weight:900;
-      margin:6px 0 12px;
-      font-size:20px;
-      color:#222;
-    }
-
-    /* MENÚ OCULTO */
-    #menu{
-      display:none;
-      margin-top:16px;
-    }
-
-    .menu-img{
-      width:100%;
-      max-width:760px;
-      border-radius:18px;
-      box-shadow:var(--shadow);
-      margin:12px auto;
-      display:block;
-      background:#fff;
-    }
-
+    /* Panel Síguenos */
     .follow-panel{
       display:none;
       width:min(520px,92%);
       margin:10px auto;
-      background:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.55);
       border-radius:18px;
       box-shadow:var(--shadow);
       padding:12px;
+      border: 1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(2px);
     }
 
     .follow-grid{
@@ -171,8 +168,34 @@
       font-weight:900;
       color:#fff;
       text-decoration:none;
-      background:#111;
+      background:rgba(17,17,17,.85);
       border-radius:16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.14);
+    }
+
+    /* MENÚ OCULTO */
+    #menu{
+      display:none;
+      margin-top:16px;
+    }
+
+    .section-title{
+      text-align:center;
+      font-weight:900;
+      margin:6px 0 12px;
+      font-size:20px;
+      color:#fff;
+      text-shadow:0 3px 10px rgba(0,0,0,.40);
+    }
+
+    .menu-img{
+      width:100%;
+      max-width:760px;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      margin:12px auto;
+      display:block;
+      background:#fff;
     }
 
     .fine{
@@ -180,7 +203,7 @@
       color:#fff;
       margin-top:16px;
       font-size:13px;
-      text-shadow:0 3px 8px rgba(0,0,0,.35);
+      text-shadow:0 3px 10px rgba(0,0,0,.40);
     }
   </style>
 </head>
@@ -196,7 +219,7 @@
 
   <div class="wrap">
 
-    <!-- LOGO ARRIBA -->
+    <!-- LOGO -->
     <div class="top-logo">
       <img src="logo-daylu.png" alt="DayLú Logo">
     </div>
@@ -210,12 +233,11 @@
 
       <a class="blob-btn">👋 Bienvenido Daylunático</a>
 
-      <!-- BOTÓN MENÚ -->
       <button class="blob-btn" onclick="toggleMenu()">📋 Menú</button>
 
       <a class="blob-btn light"
          href="https://maps.app.goo.gl/tgM7bwM5uB4q6ggQA?g_st=ic"
-         target="_blank">
+         target="_blank" rel="noopener">
         📍 Aquí te esperamos
       </a>
 
@@ -225,30 +247,27 @@
         <div class="follow-grid">
           <a class="small-btn"
              href="https://www.instagram.com/daylu.colombian?igsh=cjhxY3htdDJwZ212&utm_source=qr"
-             target="_blank">Instagram</a>
+             target="_blank" rel="noopener">Instagram</a>
 
           <a class="small-btn"
              href="https://www.tiktok.com/@daylucolombian"
-             target="_blank">TikTok</a>
+             target="_blank" rel="noopener">TikTok</a>
         </div>
       </div>
 
       <a class="blob-btn"
          href="https://wa.me/message/24BRSCQXL2SQL1"
-         target="_blank">
+         target="_blank" rel="noopener">
         💬 Haz tu pedido aquí
       </a>
 
     </div>
 
-    <!-- MENÚ OCULTO -->
+    <!-- MENÚ (OCULTO, SOLO CON BOTÓN) -->
     <div id="menu" class="card">
       <div class="section-title">Menú DayLú</div>
-
-      <img class="menu-img"
-           src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG">
-      <img class="menu-img"
-           src="Untitled%20design.png">
+      <img class="menu-img" src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG" alt="Menú 1">
+      <img class="menu-img" src="Untitled%20design.png" alt="Menú 2">
     </div>
 
     <div class="fine">© 2026 DayLú Colombian Delights</div>
@@ -266,7 +285,7 @@
 
     function toggleFollow(){
       const p = document.getElementById('followPanel');
-      p.style.display = p.style.display === 'block' ? 'none' : 'block';
+      p.style.display = (p.style.display === 'block') ? 'none' : 'block';
     }
   </script>
 
