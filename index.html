@@ -7,8 +7,6 @@
 
   <style>
     :root{
-      --morado:#7b2cbf;
-      --morado2:#5a189a;
       --glass: rgba(255,255,255,.18);
       --shadow: 0 14px 35px rgba(0,0,0,.20);
     }
@@ -21,30 +19,26 @@
       min-height:100vh;
       overflow-x:hidden;
       position:relative;
-      color:#111;
     }
 
-    /* VIDEO FONDO */
+    /* VIDEO */
     .video-bg{
       position:fixed;
       inset:0;
       z-index:-3;
-      overflow:hidden;
-      background:#000;
     }
     .video-bg video{
       width:100%;
       height:100%;
       object-fit:cover;
       transform:scale(1.10);
-      filter: brightness(1.25) contrast(1.08) saturate(1.10);
+      filter: brightness(1.25) contrast(1.08);
     }
     .video-bg::after{
       content:"";
       position:absolute;
       inset:0;
       background:rgba(0,0,0,.03);
-      pointer-events:none;
     }
 
     /* BORDE MANCHAS */
@@ -64,7 +58,6 @@
         linear-gradient(#000 0 0);
       -webkit-mask-composite:xor;
       mask-composite:exclude;
-      opacity:.95;
     }
 
     .wrap{
@@ -73,7 +66,6 @@
       padding:20px 14px 40px;
     }
 
-    /* LOGO ARRIBA */
     .top-logo{
       display:flex;
       justify-content:center;
@@ -81,89 +73,85 @@
     }
     .top-logo img{
       width:160px;
-      max-width:70vw;
       filter:drop-shadow(0 12px 28px rgba(0,0,0,.35));
     }
 
     .subtitle{
       text-align:center;
       color:#fff;
-      font-size:16px;
-      margin-bottom:14px;
+      font-size:18px;
       line-height:1.4;
-      text-shadow:0 3px 10px rgba(0,0,0,.40);
+      text-shadow:0 3px 10px rgba(0,0,0,.45);
+      margin-bottom:14px;
+      font-weight:700;
     }
 
-    /* TARJETA TRANSPARENTE */
     .card{
       background:var(--glass);
       border-radius:22px;
       box-shadow:var(--shadow);
       padding:22px 16px;
-      margin-top:12px;
-      border: 1px solid rgba(255,255,255,.25);
+      border:1px solid rgba(255,255,255,.25);
     }
 
-    /* BOTONES */
+    /* 🐄 BOTONES MANCHA */
     .blob-btn{
       display:block;
-      width:min(520px,92%);
-      margin:12px auto;
-      padding:14px 18px;
+      width:min(560px,94%);
+      margin:14px auto;
+      padding:18px 20px;
       text-align:center;
-      font-weight:800;
-      color:#fff;
-      text-decoration:none;
-      background: linear-gradient(
-        135deg,
-        rgba(123,44,191,.70),
-        rgba(90,24,154,.70)
-      );
-      box-shadow:var(--shadow);
-      border:none;
-      cursor:pointer;
-      border-radius:26px 18px 28px 20px / 18px 26px 16px 30px;
-      backdrop-filter: blur(2px);
-    }
-
-    .blob-btn.light{
-      background: rgba(255,255,255,.55);
+      font-weight:900;
+      font-size:19px; /* LETRA MÁS GRANDE */
       color:#111;
-      border:2px solid rgba(123,44,191,.25);
+      text-decoration:none;
+      background:rgba(255,255,255,.88);
+      box-shadow:0 14px 35px rgba(0,0,0,.25);
+      border:3px solid #111;
+
+      /* forma orgánica mancha */
+      border-radius:
+        38px 22px 40px 26px /
+        26px 44px 24px 42px;
+
       backdrop-filter: blur(2px);
+      cursor:pointer;
+      transition:.15s;
     }
 
-    /* PANEL SÍGUENOS */
+    .blob-btn:active{
+      transform:scale(.97);
+    }
+
     .follow-panel{
       display:none;
-      width:min(520px,92%);
+      width:min(560px,94%);
       margin:10px auto;
-      background:rgba(255,255,255,.55);
-      border-radius:18px;
+      background:rgba(255,255,255,.80);
+      border-radius:24px;
+      padding:14px;
       box-shadow:var(--shadow);
-      padding:12px;
-      border: 1px solid rgba(255,255,255,.25);
-      backdrop-filter: blur(2px);
+      border:2px solid #111;
     }
 
     .follow-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:10px;
+      gap:12px;
     }
 
     .small-btn{
       display:block;
-      padding:12px;
+      padding:14px;
       text-align:center;
       font-weight:900;
+      font-size:17px;
       color:#fff;
       text-decoration:none;
-      background:rgba(17,17,17,.85);
-      border-radius:16px;
+      background:#111;
+      border-radius:18px;
     }
 
-    /* MENÚ OCULTO */
     #menu{
       display:none;
       margin-top:16px;
@@ -173,14 +161,13 @@
       text-align:center;
       font-weight:900;
       margin:6px 0 12px;
-      font-size:20px;
+      font-size:22px;
       color:#fff;
-      text-shadow:0 3px 10px rgba(0,0,0,.40);
+      text-shadow:0 3px 10px rgba(0,0,0,.45);
     }
 
     .menu-img{
       width:100%;
-      max-width:760px;
       border-radius:18px;
       box-shadow:var(--shadow);
       margin:12px auto;
@@ -192,15 +179,14 @@
       text-align:center;
       color:#fff;
       margin-top:16px;
-      font-size:13px;
-      text-shadow:0 3px 10px rgba(0,0,0,.40);
+      font-size:14px;
+      text-shadow:0 3px 10px rgba(0,0,0,.45);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- VIDEO -->
   <div class="video-bg">
     <video autoplay muted loop playsinline>
       <source src="IMG_4374.mov" type="video/quicktime">
@@ -209,74 +195,66 @@
 
   <div class="wrap">
 
-    <!-- LOGO -->
     <div class="top-logo">
-      <img src="logo-daylu.png" alt="DayLú Logo">
+      <img src="logo-daylu.png">
     </div>
 
     <div class="subtitle">
-      <strong>Arroz con leche a tu gusto y Obleas Nube</strong><br>
-      Bienvenido a la familia <strong>Daylunática</strong> 💜
+      Arroz con leche a tu gusto y Obleas Nube<br>
+      Bienvenido a la familia Daylunática 💜
     </div>
 
     <div class="card">
 
-      <!-- BOTÓN MENÚ -->
       <button class="blob-btn" onclick="toggleMenu()">📋 Menú</button>
 
-      <a class="blob-btn light"
+      <a class="blob-btn"
          href="https://maps.app.goo.gl/tgM7bwM5uB4q6ggQA?g_st=ic"
-         target="_blank" rel="noopener">
-        📍 Aquí te esperamos
-      </a>
+         target="_blank">📍 Aquí te esperamos</a>
 
       <button class="blob-btn" onclick="toggleFollow()">✨ Síguenos</button>
 
       <div class="follow-panel" id="followPanel">
         <div class="follow-grid">
           <a class="small-btn"
-             href="https://www.instagram.com/daylu.colombian?igsh=cjhxY3htdDJwZ212&utm_source=qr"
-             target="_blank" rel="noopener">Instagram</a>
+             href="https://www.instagram.com/daylu.colombian"
+             target="_blank">Instagram</a>
 
           <a class="small-btn"
              href="https://www.tiktok.com/@daylucolombian"
-             target="_blank" rel="noopener">TikTok</a>
+             target="_blank">TikTok</a>
         </div>
       </div>
 
       <a class="blob-btn"
          href="https://wa.me/message/24BRSCQXL2SQL1"
-         target="_blank" rel="noopener">
-        💬 Haz tu pedido aquí
-      </a>
+         target="_blank">💬 Haz tu pedido aquí</a>
 
     </div>
 
-    <!-- MENÚ (SOLO AL CLIC) -->
     <div id="menu" class="card">
       <div class="section-title">Menú DayLú</div>
-      <img class="menu-img" src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG" alt="Menú 1">
-      <img class="menu-img" src="Untitled%20design.png" alt="Menú 2">
+      <img class="menu-img" src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG">
+      <img class="menu-img" src="Untitled%20design.png">
     </div>
 
-    <div class="fine">© 2026 DayLú Colombian Delights</div>
+    <div class="fine">© 2026 DayLú</div>
+
   </div>
 
-  <script>
-    function toggleMenu(){
-      const menu = document.getElementById('menu');
-      const show = menu.style.display !== 'block';
-      menu.style.display = show ? 'block' : 'none';
-      if(show){
-        menu.scrollIntoView({behavior:'smooth', block:'start'});
-      }
-    }
+<script>
+function toggleMenu(){
+  const m = document.getElementById('menu');
+  const show = m.style.display !== 'block';
+  m.style.display = show ? 'block' : 'none';
+  if(show){ m.scrollIntoView({behavior:'smooth'}); }
+}
 
-    function toggleFollow(){
-      const p = document.getElementById('followPanel');
-      p.style.display = (p.style.display === 'block') ? 'none' : 'block';
-    }
-  </script>
+function toggleFollow(){
+  const p = document.getElementById('followPanel');
+  p.style.display = p.style.display === 'block' ? 'none' : 'block';
+}
+</script>
 
 </body>
 </html>
