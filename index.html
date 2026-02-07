@@ -9,10 +9,7 @@
     :root{
       --morado:#7b2cbf;
       --morado2:#5a189a;
-
-      /* MUCHO más transparente para que se vea el video */
       --glass: rgba(255,255,255,.18);
-
       --shadow: 0 14px 35px rgba(0,0,0,.20);
     }
 
@@ -42,7 +39,6 @@
       transform:scale(1.10);
       filter: brightness(1.25) contrast(1.08) saturate(1.10);
     }
-    /* overlay ULTRA suave */
     .video-bg::after{
       content:"";
       position:absolute;
@@ -98,19 +94,17 @@
       text-shadow:0 3px 10px rgba(0,0,0,.40);
     }
 
-    /* TARJETA: súper transparente + sin blur (el blur apaga el video) */
+    /* TARJETA TRANSPARENTE */
     .card{
       background:var(--glass);
       border-radius:22px;
       box-shadow:var(--shadow);
       padding:22px 16px;
       margin-top:12px;
-
-      /* borde suave para que se note la caja sin tapar */
       border: 1px solid rgba(255,255,255,.25);
     }
 
-    /* BOTONES: morado translúcido para que se vea el video */
+    /* BOTONES */
     .blob-btn{
       display:block;
       width:min(520px,92%);
@@ -120,19 +114,16 @@
       font-weight:800;
       color:#fff;
       text-decoration:none;
-
       background: linear-gradient(
         135deg,
         rgba(123,44,191,.70),
         rgba(90,24,154,.70)
       );
-
       box-shadow:var(--shadow);
       border:none;
       cursor:pointer;
-
       border-radius:26px 18px 28px 20px / 18px 26px 16px 30px;
-      backdrop-filter: blur(2px); /* mínimo, sin tapar */
+      backdrop-filter: blur(2px);
     }
 
     .blob-btn.light{
@@ -142,7 +133,7 @@
       backdrop-filter: blur(2px);
     }
 
-    /* Panel Síguenos */
+    /* PANEL SÍGUENOS */
     .follow-panel{
       display:none;
       width:min(520px,92%);
@@ -170,7 +161,6 @@
       text-decoration:none;
       background:rgba(17,17,17,.85);
       border-radius:16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.14);
     }
 
     /* MENÚ OCULTO */
@@ -231,8 +221,7 @@
 
     <div class="card">
 
-      <a class="blob-btn">👋 Bienvenido Daylunático</a>
-
+      <!-- BOTÓN MENÚ -->
       <button class="blob-btn" onclick="toggleMenu()">📋 Menú</button>
 
       <a class="blob-btn light"
@@ -263,7 +252,7 @@
 
     </div>
 
-    <!-- MENÚ (OCULTO, SOLO CON BOTÓN) -->
+    <!-- MENÚ (SOLO AL CLIC) -->
     <div id="menu" class="card">
       <div class="section-title">Menú DayLú</div>
       <img class="menu-img" src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG" alt="Menú 1">
