@@ -9,20 +9,24 @@
 <body style="margin:0; font-family: Arial, sans-serif; text-align:center;">
 
   <!-- VIDEO DE FONDO -->
-  <video autoplay muted loop playsinline 
+  <video autoplay muted loop playsinline
     style="position:fixed; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;">
     <source src="IMG_4374.mov" type="video/mp4">
   </video>
+
+  <!-- CAPA OSCURA SUAVE -->
+  <div style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.18); z-index:-1;"></div>
 
   <!-- CONTENIDO -->
   <div style="padding:20px;">
 
     <!-- LOGO -->
-    <img src="54639D8A-08F6-4E8F-BAE1-F10F5B0F19AF.png" 
+    <img src="logo-daylu.png"
+         alt="Logo DayLú"
          style="width:120px; margin-top:20px;">
 
     <!-- TEXTO PRINCIPAL -->
-    <h1 style="color:white; text-shadow:1px 1px 3px black;">
+    <h1 style="color:white; text-shadow:1px 1px 4px black; font-size:42px; line-height:1.1; max-width:700px; margin:20px auto;">
       Haz parte de la familia Daylunática 🐄🥄✨
     </h1>
 
@@ -30,51 +34,83 @@
     <div style="margin-top:20px;">
 
       <a href="https://wa.me/19087263381" target="_blank"
-        style="display:block; margin:10px auto; padding:12px; width:80%; max-width:300px;
-        background:white; border-radius:20px; text-decoration:none; color:black;">
+        style="display:block; margin:12px auto; padding:16px; width:82%; max-width:520px;
+        background:white; border-radius:20px; text-decoration:none; color:black; font-size:20px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
         Haz tu pedido aquí 📲
       </a>
 
       <a href="https://maps.google.com" target="_blank"
-        style="display:block; margin:10px auto; padding:12px; width:80%; max-width:300px;
-        background:white; border-radius:20px; text-decoration:none; color:black;">
+        style="display:block; margin:12px auto; padding:16px; width:82%; max-width:520px;
+        background:white; border-radius:20px; text-decoration:none; color:black; font-size:20px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
         Aquí te esperamos 📍
       </a>
 
-      <a href="https://instagram.com/daylu.colombian" target="_blank"
-        style="display:block; margin:10px auto; padding:12px; width:80%; max-width:300px;
-        background:white; border-radius:20px; text-decoration:none; color:black;">
-        Síguenos en Instagram 📸
-      </a>
+      <!-- BOTÓN SÍGUENOS -->
+      <button onclick="toggleSocials()"
+        style="display:block; margin:12px auto; padding:16px; width:82%; max-width:520px;
+        background:white; border:none; border-radius:20px; color:black; font-size:20px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+        Síguenos 📸
+      </button>
 
-      <a href="https://tiktok.com/@daylucolombian" target="_blank"
-        style="display:block; margin:10px auto; padding:12px; width:80%; max-width:300px;
-        background:white; border-radius:20px; text-decoration:none; color:black;">
-        TikTok 🎥
-      </a>
+      <!-- BOTONES OCULTOS -->
+      <div id="socialButtons" style="display:none; margin-top:10px;">
+
+        <a href="https://instagram.com/daylu.colombian" target="_blank"
+          style="display:block; margin:10px auto; padding:14px; width:75%; max-width:420px;
+          background:white; border-radius:18px; text-decoration:none; color:black; font-size:18px;">
+          Instagram 📸
+        </a>
+
+        <a href="https://facebook.com/" target="_blank"
+          style="display:block; margin:10px auto; padding:14px; width:75%; max-width:420px;
+          background:white; border-radius:18px; text-decoration:none; color:black; font-size:18px;">
+          Facebook 👍
+        </a>
+
+        <a href="https://tiktok.com/@daylucolombian" target="_blank"
+          style="display:block; margin:10px auto; padding:14px; width:75%; max-width:420px;
+          background:white; border-radius:18px; text-decoration:none; color:black; font-size:18px;">
+          TikTok 🎥
+        </a>
+
+      </div>
 
     </div>
 
     <!-- MENÚ -->
-    <div style="margin-top:30px;">
+    <div style="margin-top:35px;">
+      <h2 style="color:white; text-shadow:1px 1px 4px black; font-size:32px;">Menú</h2>
 
-      <h2 style="color:white;">Menú</h2>
+      <!-- MENÚ PRINCIPAL -->
+      <img src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG"
+           alt="Menú DayLú"
+           style="width:90%; max-width:700px; margin:12px auto; border-radius:15px; display:block;">
 
-      <!-- Imagen menú 1 -->
-      <img src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG" 
-           style="width:90%; max-width:400px; margin:10px; border-radius:15px;">
+      <!-- NUEVA IMAGEN -->
+      <img src="IMG_5481.jpeg"
+           alt="Menú Meroblea"
+           style="width:90%; max-width:700px; margin:12px auto; border-radius:15px; display:block;">
 
-      <!-- Imagen menú 2 -->
-      <img src="Diseño sin título.pdf.pdf" 
-           style="width:90%; max-width:400px; margin:10px; border-radius:15px;">
-
-      <!-- NUEVA IMAGEN AGREGADA (MEROBLEA / MENÚ NUEVO) -->
-      <img src="IMG_5481.jpeg" 
-           style="width:90%; max-width:400px; margin:10px; border-radius:15px;">
-
+      <!-- BOTÓN PDF -->
+      <a href="Diseño sin título.pdf.pdf" target="_blank"
+         style="display:block; margin:15px auto 40px auto; padding:16px; width:82%; max-width:520px;
+         background:white; border-radius:20px; text-decoration:none; color:black; font-size:20px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+         Ver menú en PDF 📄
+      </a>
     </div>
 
   </div>
+
+  <script>
+    function toggleSocials() {
+      var socialButtons = document.getElementById("socialButtons");
+      if (socialButtons.style.display === "none" || socialButtons.style.display === "") {
+        socialButtons.style.display = "block";
+      } else {
+        socialButtons.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 </html>
