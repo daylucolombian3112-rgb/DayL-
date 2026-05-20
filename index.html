@@ -6,15 +6,18 @@
 <title>DayLú Colombian Delights</title>
 
 <style>
-*{box-sizing:border-box;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
-  margin:0;
   font-family:Arial, sans-serif;
   text-align:center;
   color:white;
+  background:black;
   overflow-x:hidden;
-  background:#000;
 }
 
 #video-fondo{
@@ -24,7 +27,7 @@ body{
   width:100%;
   height:100%;
   object-fit:cover;
-  z-index:-3;
+  z-index:-2;
 }
 
 .capa{
@@ -34,7 +37,7 @@ body{
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.35);
-  z-index:-2;
+  z-index:-1;
 }
 
 .contenido{
@@ -42,74 +45,85 @@ body{
 }
 
 .logo{
-  width:165px;
-  max-width:70%;
-  margin:20px auto;
+  width:170px;
+  max-width:75%;
   border-radius:50%;
+  margin:20px auto;
   display:block;
 }
 
 h1{
-  font-size:52px;
+  font-size:44px;
   line-height:1.1;
-  margin:25px auto 10px;
-  max-width:850px;
+  margin:20px auto 10px;
   text-shadow:0 4px 8px black;
 }
 
 .emojis{
-  font-size:38px;
-  margin-bottom:35px;
+  font-size:36px;
+  margin-bottom:30px;
   text-shadow:0 4px 8px black;
 }
 
 .boton{
   display:block;
-  width:88%;
+  width:90%;
   max-width:620px;
-  margin:20px auto;
-  padding:22px 15px;
+  margin:18px auto;
+  padding:21px;
   background:white;
   color:black;
   text-decoration:none;
-  font-size:32px;
+  font-size:28px;
+  font-weight:bold;
   border-radius:30px;
-  box-shadow:0 8px 18px rgba(0,0,0,0.45);
+  border:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.45);
+}
+
+.boton:active{
+  transform:scale(0.98);
+}
+
+#menu{
+  display:none;
+  margin-top:35px;
 }
 
 .titulo-menu{
-  font-size:50px;
+  font-size:45px;
   font-weight:bold;
-  margin:55px 0 25px;
+  margin-bottom:20px;
   text-shadow:0 4px 8px black;
 }
 
 .menu-img{
-  width:92%;
+  width:94%;
   max-width:720px;
   border-radius:22px;
-  margin:15px auto 25px;
+  margin:16px auto;
   display:block;
-  box-shadow:0 8px 20px rgba(0,0,0,0.45);
+  box-shadow:0 8px 22px rgba(0,0,0,0.5);
 }
 
 .footer{
   margin-top:35px;
-  font-size:22px;
+  font-size:20px;
   font-weight:bold;
   text-shadow:0 4px 8px black;
 }
 
 @media(max-width:600px){
-  h1{font-size:42px;}
-  .boton{font-size:27px;}
-  .titulo-menu{font-size:42px;}
+  h1{font-size:38px;}
+  .boton{font-size:25px;}
+  .titulo-menu{font-size:40px;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- VIDEO DE FONDO -->
 <video autoplay muted loop playsinline id="video-fondo">
   <source src="IMG_4374.mov" type="video/quicktime">
   <source src="IMG_4374.MOV" type="video/quicktime">
@@ -121,6 +135,7 @@ h1{
 
 <div class="contenido">
 
+  <!-- LOGO -->
   <img class="logo" src="logo.png" alt="Logo DayLú">
 
   <h1>Haz parte de la familia Daylunática</h1>
@@ -142,21 +157,39 @@ h1{
     TikTok 🎵
   </a>
 
-  <div class="titulo-menu">Menú</div>
+  <!-- BOTÓN MENÚ -->
+  <button class="boton" onclick="mostrarMenu()">
+    Menú 📋
+  </button>
 
-  <img class="menu-img" src="IMG_4852.jpeg" alt="Menú DayLú">
+  <!-- MENÚ OCULTO -->
+  <div id="menu">
+    <div class="titulo-menu">Nuestro Menú</div>
 
-  <img class="menu-img" src="IMG_5481.jpeg" alt="Meroblea DayLú">
+    <img class="menu-img" src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG" alt="Menú DayLú parte 1">
 
-  <a class="boton" href="IMG_4852.jpeg" target="_blank">
-    Ver menú completo 📋
-  </a>
+    <img class="menu-img" src="IMG_4852.jpeg" alt="Menú DayLú parte 2">
+
+    <img class="menu-img" src="IMG_5481.jpeg" alt="Menú DayLú parte 3">
+  </div>
 
   <div class="footer">
     DayLú Colombian Delights 🐄🥄✨
   </div>
 
 </div>
+
+<script>
+function mostrarMenu(){
+  var menu = document.getElementById("menu");
+  if(menu.style.display === "none" || menu.style.display === ""){
+    menu.style.display = "block";
+    menu.scrollIntoView({behavior:"smooth"});
+  } else {
+    menu.style.display = "none";
+  }
+}
+</script>
 
 </body>
 </html>
