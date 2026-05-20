@@ -6,189 +6,343 @@
 <title>DayLú Colombian Delights</title>
 
 <style>
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-  font-family:Arial, sans-serif;
-  text-align:center;
-  color:white;
-  background:black;
-  overflow-x:hidden;
+font-family:Arial, sans-serif;
+overflow-x:hidden;
+text-align:center;
+color:white;
+background:black;
 }
+
+/* VIDEO FONDO */
 
 #video-fondo{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-2;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-3;
 }
 
+/* CAPA OSCURA */
+
 .capa{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.35);
-  z-index:-1;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.38);
+z-index:-2;
+}
+
+/* BORDES MANCHAS DE VACA */
+
+.fondo-vaca{
+min-height:100vh;
+padding:18px;
+
+background:
+radial-gradient(circle at 5% 8%, black 0 24px, transparent 25px),
+radial-gradient(circle at 94% 10%, black 0 34px, transparent 35px),
+radial-gradient(circle at 7% 40%, black 0 30px, transparent 31px),
+radial-gradient(circle at 93% 55%, black 0 24px, transparent 25px),
+radial-gradient(circle at 10% 88%, black 0 34px, transparent 35px),
+radial-gradient(circle at 92% 92%, black 0 28px, transparent 29px);
+
+background-size:100% 100%;
 }
 
 .contenido{
-  padding:35px 18px 70px;
+max-width:700px;
+margin:auto;
+padding:20px 15px 70px;
 }
+
+/* LOGO */
 
 .logo{
-  width:170px;
-  max-width:75%;
-  border-radius:50%;
-  margin:20px auto;
-  display:block;
+width:190px;
+max-width:75%;
+display:block;
+margin:20px auto 15px;
+border-radius:50%;
+background:white;
+padding:5px;
+box-shadow:0 8px 25px rgba(0,0,0,0.55);
 }
 
-h1{
-  font-size:44px;
-  line-height:1.1;
-  margin:20px auto 10px;
-  text-shadow:0 4px 8px black;
+/* TEXTOS */
+
+.bienvenida{
+font-size:33px;
+font-weight:bold;
+line-height:1.2;
+margin-top:10px;
+text-shadow:0 4px 8px black;
+}
+
+.subtitulo{
+font-size:24px;
+font-weight:bold;
+margin-top:12px;
+text-shadow:0 4px 8px black;
 }
 
 .emojis{
-  font-size:36px;
-  margin-bottom:30px;
-  text-shadow:0 4px 8px black;
+font-size:38px;
+margin-top:15px;
+margin-bottom:35px;
+text-shadow:0 4px 8px black;
 }
 
+/* BOTONES */
+
 .boton{
-  display:block;
-  width:90%;
-  max-width:620px;
-  margin:18px auto;
-  padding:21px;
-  background:white;
-  color:black;
-  text-decoration:none;
-  font-size:28px;
-  font-weight:bold;
-  border-radius:30px;
-  border:none;
-  box-shadow:0 8px 20px rgba(0,0,0,0.45);
+display:block;
+width:92%;
+max-width:580px;
+margin:18px auto;
+padding:22px;
+background:white;
+color:black;
+text-decoration:none;
+font-size:28px;
+font-weight:bold;
+border:none;
+border-radius:35px;
+box-shadow:0 8px 20px rgba(0,0,0,0.45);
+}
+
+button.boton{
+cursor:pointer;
 }
 
 .boton:active{
-  transform:scale(0.98);
+transform:scale(0.98);
 }
 
-#menu{
-  display:none;
-  margin-top:35px;
-}
+/* MENÚ */
 
-.titulo-menu{
-  font-size:45px;
-  font-weight:bold;
-  margin-bottom:20px;
-  text-shadow:0 4px 8px black;
+.oculto{
+display:none;
 }
 
 .menu-img{
-  width:94%;
-  max-width:720px;
-  border-radius:22px;
-  margin:16px auto;
-  display:block;
-  box-shadow:0 8px 22px rgba(0,0,0,0.5);
+width:96%;
+max-width:650px;
+display:block;
+margin:18px auto;
+border-radius:25px;
+border:5px solid white;
+box-shadow:0 8px 24px rgba(0,0,0,0.55);
 }
 
+/* FOOTER */
+
 .footer{
-  margin-top:35px;
-  font-size:20px;
-  font-weight:bold;
-  text-shadow:0 4px 8px black;
+margin-top:35px;
+font-size:19px;
+font-weight:bold;
+text-shadow:0 4px 8px black;
 }
 
 @media(max-width:600px){
-  h1{font-size:38px;}
-  .boton{font-size:25px;}
-  .titulo-menu{font-size:40px;}
+
+.bienvenida{
+font-size:28px;
 }
+
+.subtitulo{
+font-size:21px;
+}
+
+.boton{
+font-size:24px;
+padding:20px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO DE FONDO -->
+<!-- VIDEO FONDO -->
+
 <video autoplay muted loop playsinline id="video-fondo">
-  <source src="IMG_4374.mov" type="video/quicktime">
-  <source src="IMG_4374.MOV" type="video/quicktime">
-  <source src="video-fondo.mp4" type="video/mp4">
-  <source src="video-fondo.mp4..MOV" type="video/quicktime">
+
+<source src="2a58490d2546436d9c664f140fb63b5f.mov" type="video/quicktime">
+
 </video>
 
 <div class="capa"></div>
 
+<div class="fondo-vaca">
+
 <div class="contenido">
 
-  <!-- LOGO -->
-  <img class="logo" src="logo.png" alt="Logo DayLú">
+<!-- LOGO -->
 
-  <h1>Haz parte de la familia Daylunática</h1>
-  <div class="emojis">🐄🥄✨</div>
+<img class="logo" src="logo-daylu.png" alt="Logo DayLú">
 
-  <a class="boton" href="https://wa.me/19087263381" target="_blank">
-    Haz tu pedido aquí 📲
-  </a>
+<!-- TEXTO -->
 
-  <a class="boton" href="https://maps.google.com/?q=Daylu+Colombian+delights+Bound+Brook+NJ" target="_blank">
-    Aquí te esperamos 📍
-  </a>
+<div class="bienvenida">
+Bienvenido a la familia Daylunática
+</div>
 
-  <a class="boton" href="https://www.instagram.com/daylu.colombian" target="_blank">
-    Instagram 📸
-  </a>
+<div class="subtitulo">
+El arroz con leche a tu gusto
+</div>
 
-  <a class="boton" href="https://www.tiktok.com/@daylucolombian" target="_blank">
-    TikTok 🎵
-  </a>
+<div class="emojis">
+🐄🥄✨🇨🇴
+</div>
 
-  <!-- BOTÓN MENÚ -->
-  <button class="boton" onclick="mostrarMenu()">
-    Menú 📋
-  </button>
+<!-- BOTÓN WHATSAPP -->
 
-  <!-- MENÚ OCULTO -->
-  <div id="menu">
-    <div class="titulo-menu">Nuestro Menú</div>
+<a class="boton"
+href="https://wa.me/19087263381"
+target="_blank">
 
-    <img class="menu-img" src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG" alt="Menú DayLú parte 1">
+Haz tu pedido aquí 📲
 
-    <img class="menu-img" src="IMG_4852.jpeg" alt="Menú DayLú parte 2">
+</a>
 
-    <img class="menu-img" src="IMG_5481.jpeg" alt="Menú DayLú parte 3">
-  </div>
+<!-- UBICACIÓN -->
 
-  <div class="footer">
-    DayLú Colombian Delights 🐄🥄✨
-  </div>
+<a class="boton"
+href="https://maps.google.com/?q=Daylu+Colombian+delights+Bound+Brook+NJ"
+target="_blank">
+
+Te esperamos aquí 📍
+
+</a>
+
+<!-- BOTÓN REDES -->
+
+<button class="boton" onclick="mostrarRedes()">
+
+Síguenos aquí 🐄
+
+</button>
+
+<!-- REDES -->
+
+<div id="redes" class="oculto">
+
+<a class="boton"
+href="https://www.tiktok.com/@daylucolombian"
+target="_blank">
+
+TikTok 🎵
+
+</a>
+
+<a class="boton"
+href="https://www.instagram.com/daylu.colombian"
+target="_blank">
+
+Instagram 📸
+
+</a>
+
+<a class="boton"
+href="https://www.facebook.com/search/top?q=daylu%20colombian%20delights"
+target="_blank">
+
+Facebook 💙
+
+</a>
+
+</div>
+
+<!-- BOTÓN MENÚ -->
+
+<button class="boton" onclick="mostrarMenu()">
+
+Menú 📋
+
+</button>
+
+<!-- MENÚ OCULTO -->
+
+<div id="menu" class="oculto">
+
+<img class="menu-img"
+src="17ad70c2-8e4b-42ef-971d-171412aadbe3.JPG">
+
+<img class="menu-img"
+src="IMG_4852.jpeg">
+
+<img class="menu-img"
+src="IMG_5481.jpeg">
+
+</div>
+
+<div class="footer">
+
+DayLú Colombian Delights 🐄🥄✨
+
+</div>
+
+</div>
 
 </div>
 
 <script>
+
 function mostrarMenu(){
-  var menu = document.getElementById("menu");
-  if(menu.style.display === "none" || menu.style.display === ""){
-    menu.style.display = "block";
-    menu.scrollIntoView({behavior:"smooth"});
-  } else {
-    menu.style.display = "none";
-  }
+
+var menu = document.getElementById("menu");
+
+if(menu.style.display === "block"){
+
+menu.style.display = "none";
+
+}else{
+
+menu.style.display = "block";
+
+menu.scrollIntoView({
+behavior:"smooth"
+});
+
 }
+
+}
+
+function mostrarRedes(){
+
+var redes = document.getElementById("redes");
+
+if(redes.style.display === "block"){
+
+redes.style.display = "none";
+
+}else{
+
+redes.style.display = "block";
+
+redes.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+}
+
 </script>
 
 </body>
